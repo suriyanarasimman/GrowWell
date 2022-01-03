@@ -8,6 +8,10 @@
     border-bottom: 1px solid #ddd;
 }
 
+#myDropdown input {
+    width: 100%;
+}
+
 #myInput:focus {
     outline: 3px solid #ddd;
 }
@@ -15,13 +19,17 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    margin: 5px;
+    position: relative;
+    max-height: 110px;
+    overflow: auto;
 }
 
 .dropdown-content {
     position: relative;
     background-color: #f6f6f6;
     min-width: 230px;
-    overflow: auto;
+    // overflow: auto;
     border: 1px solid #ddd;
     z-index: 1;
 }
@@ -31,6 +39,7 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    float: inline-start;
 }
 
 .dropdown a:hover {
@@ -39,4 +48,32 @@
 
 .show {
     display: block;
+}
+
+.container-fluid {
+    border: 10px;
+}
+
+.com {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    min-height: 53px;
+}
+
+.butto {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    min-height: 53px;
+}
+
+.c {
+    border-style: groove;
+    margin: 10px;
 }

@@ -18,6 +18,7 @@ export class StockhistoryComponent implements OnInit {
   public searchInput: String = '';
   public dateInput: String = '';
   public selected: String = "";
+  public selectedFullname:String ="";
   public clicked: String;
   public searchResult: Array<Nametosymbol> = [];
   public stockdetails: StockDetails;
@@ -30,6 +31,11 @@ export class StockhistoryComponent implements OnInit {
   datecalled(){
     console.log(this.dateInput)
     this.subscription.unsubscribe();
+    for (var i = 0; i < this.searchResult.length; i++){
+      if (this.searchResult[i].fullnames == this.searchInput){
+        this.selected = this.searchResult[i].symbo;
+      }
+    }
     this.subscription =  this.generalService.fetchstockdetails(this.selected,this.dateInput).subscribe(
       (response) =>{
         this.stockdetails = response;
@@ -42,10 +48,13 @@ export class StockhistoryComponent implements OnInit {
       
   }
 
-  stockSelected(symbol:String){
+  stockSelected(symbol:String,fullname: String){
     this.selected = symbol;
+    this.selectedFullname = fullname;
     this.clicked = "1"
+    console.log("Inside")
     console.log(symbol)
+    console.log(this.selectedFullname)
 
   }
 
