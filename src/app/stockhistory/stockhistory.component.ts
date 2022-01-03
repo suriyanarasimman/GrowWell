@@ -11,6 +11,7 @@ import { FormControl } from '@angular/forms';
 export class StockhistoryComponent implements OnInit {
 
   public searchInput: String = '';
+  public dateInput: String = '';
   public selected: String = "";
   public clicked: String;
   public searchResult: Array<Nametosymbol> = [];
@@ -18,6 +19,9 @@ export class StockhistoryComponent implements OnInit {
   constructor(private generalService: GeneralService) { }
 
   ngOnInit(): void {
+  }
+  datecalled(){
+    console.log(this.dateInput)
   }
 
   stockSelected(symbol:String){
@@ -34,9 +38,7 @@ export class StockhistoryComponent implements OnInit {
       this.searchResult = response;
     })
 
-    for(var i=0;i<this.searchResult.length;i++){
-      console.log(this.searchResult)
-    }
+
   }
 
 
