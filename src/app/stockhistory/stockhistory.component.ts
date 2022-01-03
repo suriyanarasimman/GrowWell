@@ -11,6 +11,8 @@ import { FormControl } from '@angular/forms';
 export class StockhistoryComponent implements OnInit {
 
   public searchInput: String = '';
+  public selected: String = "";
+  public clicked: String;
   public searchResult: Array<Nametosymbol> = [];
 
   constructor(private generalService: GeneralService) { }
@@ -18,11 +20,18 @@ export class StockhistoryComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  stockSelected(symbol:String){
+    this.selected = symbol;
+    this.clicked = "1"
+    console.log(symbol)
+
+  }
+
   fetchSeries(){
+    this.clicked ="";
  
     this.generalService.searchstockhistory(this.searchInput).subscribe((response) => {
       this.searchResult = response;
-      console.log(response)
     })
 
     for(var i=0;i<this.searchResult.length;i++){

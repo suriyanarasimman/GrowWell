@@ -2,7 +2,7 @@
     <div id="myDropdown" class="dropdown-content">
         <input type="text" [(ngModel)]="searchInput" placeholder="Search.." id="myInput" (keyup)="fetchSeries()" />
         <p [ngStyle]="{'display': clicked == '1' ? 'none' : 'show'}" *ngFor="let sd of searchResult">
-            <a>{{sd.fullnames}}</a>
+            <a (click)="stockSelected(sd.fullnames)">{{sd.fullnames}}</a>
         </p>
 
     </div>

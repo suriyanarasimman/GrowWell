@@ -1,5 +1,5 @@
 export interface Nametosymbol{
     symbo: String,
-    fullname: String,
+    fullnames: String,
     id: Number
 }
