@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Nametosymbol } from 'src/assets/nametosymbol';
 import { GeneralService } from '../services/general.service';
 import { FormControl } from '@angular/forms';
+import { StockDetails } from 'src/assets/stockdetails';
 
 @Component({
   selector: 'app-stockhistory',
@@ -15,6 +16,7 @@ export class StockhistoryComponent implements OnInit {
   public selected: String = "";
   public clicked: String;
   public searchResult: Array<Nametosymbol> = [];
+  public stockdetails: StockDetails;
 
   constructor(private generalService: GeneralService) { }
 
@@ -22,6 +24,11 @@ export class StockhistoryComponent implements OnInit {
   }
   datecalled(){
     console.log(this.dateInput)
+    this.generalService.fetchstockdetails(this.searchInput,this.dateInput).subscribe(
+      (response) =>{
+this.stockdetails = response
+      })
+
   }
 
   stockSelected(symbol:String){

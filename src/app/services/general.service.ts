@@ -72,4 +72,8 @@ export class GeneralService {
     return this.http.get<any>(this.baseUrl + 'sh/' + name);
   }
 
+  fetchstockdetails(name:String,date:String): Observable<any>{
+    return this.http.get<any>(this.baseUrl + "sh/" + name +"/" + date);
+  }
+
 }
