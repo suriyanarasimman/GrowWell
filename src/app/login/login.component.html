@@ -4,15 +4,16 @@
         <p>Grow your wealth with us</p>
     </div>
     <div class="form">
-        <form>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="exampleInputUsername">Username</label>
-                <input type="text" class="form-control" id="exampleInputUsername" aria-describedby="UsernameHelp"
-                    placeholder="Enter Username">
+                <label for="inputUsername">Username</label>
+                <input type="text" class="form-control" id="inputUsername" aria-describedby="UsernameHelp"
+                    placeholder="Enter Username" formControlName="username">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password"
+                    formControlName="password">
             </div>
             <div class="form-group row">
                 <div class="col">

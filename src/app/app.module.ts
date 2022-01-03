@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { GeneralService } from './services/general.service';
 
 
 @NgModule({
@@ -22,9 +23,10 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [GeneralService],
   bootstrap: [AppComponent, LoginComponent]
 })
 export class AppModule { }
