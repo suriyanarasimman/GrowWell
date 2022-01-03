@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { HeaderComponent } from './header/header.component';
+import { StockhistoryComponent } from './stockhistory/stockhistory.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     FooterComponent,
     HeaderComponent,
+    StockhistoryComponent,
     
 
 
@@ -24,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

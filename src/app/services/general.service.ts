@@ -68,4 +68,8 @@ export class GeneralService {
     return this.http.get<any>(this.baseUrl + 'products/catalog');
   }
 
+  searchstockhistory(name:String): Observable<any>{
+    return this.http.get<any>(this.baseUrl + 'sh/' + name);
+  }
+
 }
