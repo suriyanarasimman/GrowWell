@@ -1,12 +1,37 @@
-<div class="container">
-    <div class="dropdown">
-        <div id="myDropdown" class="dropdown-content">
-            <input type="text" [(ngModel)]="searchInput" placeholder="Search.." id="myInput" (keyup)="fetchSeries()" />
-            <p [ngStyle]="{'display': clicked == '1' ? 'none' : 'show'}" *ngFor="let sd of searchResult">
-                <a (click)="stockSelected(sd.symbo)">{{sd.fullnames}}</a>
-            </p>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">StockHistory</h5>
+        <p class="card-text">Enter the sock Name and the date to get the details!!!.</p>
+        <div class="container">
+            <div class="dropdown">
+                <div id="myDropdown" class="dropdown-content">
+                    <input type="text" [(ngModel)]="searchInput" placeholder="Search.." id="myInput" (keyup)="fetchSeries()" />
+                    <p [ngStyle]="{'display': clicked == '1' ? 'none' : 'show'}" *ngFor="let sd of searchResult">
+                        <a (click)="stockSelected(sd.symbo)">{{sd.fullnames}}</a>
+                    </p>
+                </div>
+            </div>
+            <input [(ngModel)]="dateInput" type="date" />
+            <button (click)="datecalled()">submit</button>
         </div>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-    <input [(ngModel)]="dateInput" type="date" />
-    <button (click)="datecalled()">submit</button>
+
+    <div class="container" *ngIf="Submitted1 === '1'">
+        <label>name: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.name}}</label><br>
+        <label>date: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.date}}</label><br>
+        <label>open: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.open}}</label><br>
+        <label>high: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.high}}</label><br>
+        <label>low: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.low}}</label><br>
+        <label>close: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.close}}</label><br>
+        <label>volume: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.volume}}</label><br>
+        <label>ex_dividend: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.ex_dividend}}</label><br>
+        <label>split_ratio: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.split_ratio}}</label><br>
+        <label>adj_open: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_open}}</label><br>
+        <label>adj_high: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_high}}</label><br>
+        <label>adj_low: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_low}}</label><br>
+        <label>adj_close: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_close}}</label><br>
+        <label>adj_volume: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_volume}}</label><br>
+    </div>
+
 </div>
