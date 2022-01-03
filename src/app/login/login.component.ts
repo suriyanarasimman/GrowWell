@@ -33,13 +33,14 @@ export class LoginComponent implements OnInit {
     };
     console.log(authenticateRequest);
     this.authenticate.authenticateUser(authenticateRequest).subscribe((response) => {
-      if (response.authencticated) {
+      console.log(response)
+      if (response.authenticated) {
         if(this.rememberMe){
           //cookies to be implemented
         }
         localStorage.setItem("userName", response.userName);
         localStorage.setItem("userType", response.userType);
-        localStorage.setItem("authenticated", response.authencticated);
+        localStorage.setItem("authenticated", response.authenticated);
       }
       else {
         this.invalidCredentials=true;
