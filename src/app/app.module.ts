@@ -16,13 +16,14 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    HttpClientModule,
+    
 
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
