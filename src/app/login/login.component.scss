@@ -19,3 +19,14 @@
 .container{
     margin-top: 10%;
 }
+
+.invalidCredentials{
+    background-color: red;
+    text-align: center;
+    color: white;
+}
+
+.spacer{
+    display: flex;
+    gap: 5px;
+}

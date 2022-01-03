@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import {GeneralService} from 'src/app/services/general.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
   selector: 'app-login',
@@ -9,33 +9,45 @@ import {GeneralService} from 'src/app/services/general.service';
 })
 export class LoginComponent implements OnInit {
 
-  form:FormGroup;
+  form: FormGroup;
+  invalidCredentials: Boolean = false;
+  rememberMe:Boolean=false;
   constructor(
-    private authenticate:GeneralService) {}
+    private authenticate: GeneralService) { }
 
   ngOnInit(): void {
-    this.form=new FormGroup({
-      username: new FormControl(),
-      password: new FormControl()
+    this.form = new FormGroup({
+      username: new FormControl("",Validators.required),
+      password: new FormControl("", Validators.required),
+      rememberMe: new FormControl()
     });
 
 
   }
 
-  onSubmit(){
+  onSubmit() {
     let authenticateRequest = {
       userName: this.form.get('username').value,
       password: this.form.get('password').value,
+      rememberMe: this.form.get('rememberMe').value,
     };
     console.log(authenticateRequest);
     this.authenticate.authenticateUser(authenticateRequest).subscribe((response) => {
-      // if(response.authencticated){
-        console.log(response);
-      // }
+      if (response.authencticated) {
+        if(this.rememberMe){
+          //cookies to be implemented
+        }
+        localStorage.setItem("userName", response.userName);
+        localStorage.setItem("userType", response.userType);
+        localStorage.setItem("authenticated", response.authencticated);
+      }
+      else {
+        this.invalidCredentials=true;
+      }
     },
-    (error) => {
-      console.log("service failed");
-    }
+      (error) => {
+        console.log("service failed");
+      }
     );
   }
 }
