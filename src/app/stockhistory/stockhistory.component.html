@@ -1,44 +1,45 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">StockHistory</h5>
-        <p class="card-text">Enter the sock Name and the date to get the details!!!.</p>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="dropdown col-md-5 ">
-                    <div id="myDropdown" class="dropdown-content">
+<div class="container-fluid  justify-content-center backgroun">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">StockHistory</h5>
+            <p class="card-text">Enter the sock Name and the date to get the details!!!.</p>
+            <div class="container">
+                <div class="row">
+                    <div class="dropdown col-md-5 ">
+                        <div id="myDropdown" class="dropdown-content">
 
-                        <input list="stoc" type="text" [(ngModel)]="searchInput" placeholder="Search.." id="myInput" (keyup)="fetchSeries()" />
-                        <datalist id="stoc" [ngStyle]="{'display': clicked == '1' ? 'none' : 'show'}">
+                            <input list="stoc" type="text" [(ngModel)]="searchInput" placeholder="Search.." id="myInput" (keyup)="fetchSeries()" />
+                            <datalist id="stoc" [ngStyle]="{'display': clicked == '1' ? 'none' : 'show'}">
                             <option 
                             *ngFor="let sd of searchResult"><a (click)="stockSelected(sd.symbo,sd.fullnames)">{{sd.fullnames}}</a></option>
-                        </datalist >
+                            </datalist >
+                        </div>
                     </div>
+                    <input class="com col-md-5" [(ngModel)]="dateInput" type="date" />
+                    <button class=" col butto " (click)="datecalled()">submit</button>
                 </div>
-                <input class="com col-md-5" [(ngModel)]="dateInput" type="date" />
-                <button class="butto col" (click)="datecalled()">submit</button>
             </div>
+
         </div>
 
-    </div>
-
-    <div class="container-fluid" *ngIf="Submitted1 === '1'">
-        <p class="card-text">Detalis:</p>
-        <div class="row">
-            <div class="c col"><label>name: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.name}}</label><br></div>
-            <div class="c col"><label>date: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.date}}</label><br></div>
-            <div class="c col"><label>open: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.open}}</label><br></div>
-            <div class="c col"><label>high: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.high}}</label><br></div>
-            <div class="c col"><label>low: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.low}}</label><br></div>
-            <div class="c col"><label>close: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.close}}</label><br></div>
-            <div class="c col"><label>volume: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.volume}}</label><br></div>
-            <div class="c col"><label>ex_dividend: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.ex_dividend}}</label><br></div>
-            <div class="c col"><label>split_ratio: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.split_ratio}}</label><br></div>
-            <div class="c col"><label>adj_open: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_open}}</label><br></div>
-            <div class="c col"><label>adj_high: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_high}}</label><br></div>
-            <div class="c col"><label>adj_low: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_low}}</label><br></div>
-            <div class="c col"><label>adj_close: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_close}}</label><br></div>
-            <div class="c col"><label>adj_volume: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_volume}}</label><br></div>
+      <div class="container-fluid" *ngIf="Submitted1 === '1'">
+            <p class="card-text">Detalis:</p>
+            <div class="row">
+                <div class="c col"><label>name: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.name}}</label><br></div>
+                <div class="c col"><label>date: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.date}}</label><br></div>
+                <div class="c col"><label>open: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.open}}</label><br></div>
+                <div class="c col"><label>high: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.high}}</label><br></div>
+                <div class="c col"><label>low: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.low}}</label><br></div>
+                <div class="c col"><label>close: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.close}}</label><br></div>
+                <div class="c col"><label>volume: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.volume}}</label><br></div>
+                <div class="c col"><label>ex_dividend: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.ex_dividend}}</label><br></div>
+                <div class="c col"><label>split_ratio: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.split_ratio}}</label><br></div>
+                <div class="c col"><label>adj_open: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_open}}</label><br></div>
+                <div class="c col"><label>adj_high: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_high}}</label><br></div>
+                <div class="c col"><label>adj_low: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_low}}</label><br></div>
+                <div class="c col"><label>adj_close: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_close}}</label><br></div>
+                <div class="c col"><label>adj_volume: </label> <label *ngIf="Submitted1 === '1'">{{stockdetails.adj_volume}}</label><br></div>
+          </div>
         </div>
     </div>
-
 </div>

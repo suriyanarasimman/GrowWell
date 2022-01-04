@@ -22,6 +22,8 @@
     margin: 5px;
     position: relative;
     max-height: 110px;
+    padding-right: 0px;
+    padding-left: 0px;
     overflow: auto;
 }
 
@@ -29,7 +31,7 @@
     position: relative;
     background-color: #f6f6f6;
     min-width: 230px;
-    // overflow: auto;
+    overflow: auto;
     border: 1px solid #ddd;
     z-index: 1;
 }
@@ -71,9 +73,26 @@
     overflow: auto;
     border: 1px solid #ddd;
     min-height: 53px;
+    min-width: 50px;
+    // padding-left: 0px;
+    margin-left: 13px;
 }
 
 .c {
     border-style: groove;
     margin: 10px;
+}
+
+.backgroun {
+    position: absolute;
+    padding-top: 15%;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/images/stockhistoryimg.jpg);
+    background-size: cover;
+}
+
+.card {
+    opacity: 0.8;
+    color: #000000;
 }
