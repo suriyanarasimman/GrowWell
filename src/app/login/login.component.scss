@@ -6,10 +6,6 @@
     width: 300px;
 }
 
-.heading {
-    text-align: center;
-}
-
 .form {
     display: flex;
     justify-content: center;
@@ -41,4 +37,8 @@
 
 .disabled {
     cursor: not-allowed;
+}
+
+.card-img-overlay{
+    height: 100% !important;
 }
