@@ -1,32 +1,44 @@
-
-.form-group{
-    padding:10px;
+.form-group {
+    padding: 10px;
 }
 
-.form-control{
-    width:300px;
+.form-control {
+    width: 300px;
 }
 
-.heading{
+.heading {
     text-align: center;
 }
 
-.form{
+.form {
     display: flex;
     justify-content: center;
- }
+}
 
-.container{
+.container {
     margin-top: 10%;
 }
 
-.invalidCredentials{
+.invalidCredentials {
     background-color: red;
     text-align: center;
     color: white;
 }
 
-.spacer{
+.spacer {
     display: flex;
-    gap: 5px;
+    gap: 50px;
+}
+
+.form-check{
+    margin-left: -30px !important;
+}
+
+.spacer-2 {
+    display: flex;
+    gap: 40%;
+}
+
+.disabled {
+    cursor: not-allowed;
 }
