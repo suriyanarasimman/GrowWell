@@ -53,4 +53,4 @@ jobs:
           app-name: 'GrowWell'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E1170B21E0A94E2A872E12926CEB859E }}
-          package: .
+          package: ./dist/GrowWell
