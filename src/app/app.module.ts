@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { GeneralService } from './services/general.service';
 import { RegisterComponent } from './register/register.component';
 
+import { StockhistoryComponent } from './stockhistory/stockhistory.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
+    StockhistoryComponent,
     
 
 
@@ -31,7 +34,8 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [GeneralService],
   bootstrap: [AppComponent,LoginComponent]
