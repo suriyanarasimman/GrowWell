@@ -16,7 +16,12 @@ import { RegisterComponent } from './register/register.component';
 
 import { StockhistoryComponent } from './stockhistory/stockhistory.component';
 import { FormsModule } from '@angular/forms';
+import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
+import { FiltersComponent } from './mutual-funds/filters/filters.component';
+import { PortfolioComponent } from './mutual-funds/portfolio/portfolio.component';
+import { CartComponent } from './mutual-funds/cart/cart.component';
 
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
 
 @NgModule({
   declarations: [
@@ -26,6 +31,10 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     StockhistoryComponent,
+    MutualFundsComponent,
+    FiltersComponent,
+    PortfolioComponent,
+    CartComponent,
     
 
 
@@ -35,7 +44,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxSliderModule
   ],
   providers: [GeneralService],
   bootstrap: [AppComponent,LoginComponent]
