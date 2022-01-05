@@ -5,11 +5,13 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StockhistoryComponent } from './stockhistory/stockhistory.component';
+import { WealthComponent } from './wealth/wealth.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path: "stockhistory",component:StockhistoryComponent}
+  {path: "stockhistory",component:StockhistoryComponent},
+  {path: "wealth",component:WealthComponent}
 
 
 ]
