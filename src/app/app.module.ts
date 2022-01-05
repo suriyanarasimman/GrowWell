@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { GeneralService } from './services/general.service';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -19,7 +21,11 @@ import { GeneralService } from './services/general.service';
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    
+
+
   ],
   imports: [
     BrowserModule,

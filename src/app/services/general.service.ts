@@ -9,12 +9,22 @@ import { environment } from 'src/environments/environment';
 export class GeneralService {
 
   baseUrl: String = environment.baseUrl;
+  addressUrl:String="https://www.universal-tutorial.com/api/"
 
   constructor(private http: HttpClient) { }
 
   registerUser(userDetail: any): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'register', userDetail);
   }
+
+  getCountries(header:any): Observable<any> {
+    return this.http.get<any>(this.addressUrl + 'countries',header);
+  }
+
+  getStates(country:string,header:any): Observable<any> {
+    return this.http.get<any>(this.addressUrl + 'states/'+country,header);
+  }
+
 
   authenticateUser(userDetail: any): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'authenticate', userDetail);
