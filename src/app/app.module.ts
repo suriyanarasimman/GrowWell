@@ -16,7 +16,10 @@ import { RegisterComponent } from './register/register.component';
 
 import { StockhistoryComponent } from './stockhistory/stockhistory.component';
 import { FormsModule } from '@angular/forms';
-import { WealthComponent } from './wealth/wealth.component';
+import { ProductShopComponent } from './product-shop/product-shop.component';
+import { WealthComponent } from './product-shop/components/wealth/wealth.component';
+import { IncomeComponent } from './product-shop/components/income/income.component';
+
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { WealthComponent } from './wealth/wealth.component';
     LoginComponent,
     RegisterComponent,
     StockhistoryComponent,
+    ProductShopComponent,
     WealthComponent,
+    IncomeComponent,
+    
     
 
 
@@ -40,6 +46,6 @@ import { WealthComponent } from './wealth/wealth.component';
     FormsModule
   ],
   providers: [GeneralService],
-  bootstrap: [AppComponent,LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
