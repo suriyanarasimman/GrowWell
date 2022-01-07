@@ -15,7 +15,9 @@ export class ProductShopComponent implements OnInit {
   incomeProduct=[];
   errors=false;
 
-  constructor(private Routeservice:GeneralService) { }
+  constructor(private Routeservice:GeneralService) {
+    
+   }
 
   ngOnInit(): void {
 
