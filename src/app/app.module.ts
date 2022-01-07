@@ -16,6 +16,9 @@ import { RegisterComponent } from './register/register.component';
 
 import { StockhistoryComponent } from './stockhistory/stockhistory.component';
 import { FormsModule } from '@angular/forms';
+import { StockComponent } from './stock/stock.component';
+import { BuyComponent } from './stock/buy/buy.component';
+import { SellComponent } from './stock/sell/sell.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     StockhistoryComponent,
+    StockComponent,
+    BuyComponent,
+    SellComponent,
     
 
 
