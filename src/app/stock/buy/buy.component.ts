@@ -38,6 +38,8 @@ export class BuyComponent implements OnInit {
   price: number;
   Quantity:number;
   searchResult: Array<IStocks> = [];
+  ordType:String = "Market Order";
+  symbol:String;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,9 +52,11 @@ export class BuyComponent implements OnInit {
 
   datecalled(){
     console.log(this.searchInput)
+    this.fullName = this.searchInput
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].name == this.searchInput){
         this.price = this.searchResult[i].price;
+        this.symbol = this.searchResult[i].ticker;
         console.log(this.price)
         console.log(this.Quantity)
       }
@@ -66,9 +70,28 @@ export class BuyComponent implements OnInit {
   onOrderTypeChange(str:String) {
     if (str === "limit") {
       this.displayPriceForLimitOrder = true;
+      this.ordType= str;
     } else {
       this.displayPriceForLimitOrder = false;
+      this.ordType= str;
     }
+  }
+  onBuyFormSubmit() {
+
+    let buyOrderRequest = {
+      userName: this.userName,
+      productName: this.fullName,
+      productID: this.symbol,
+      productType: 'STOCK',
+      subcategory: 'STOCK',
+      buyPrice: this.price,
+      marketPrice: this.price,
+      quantity: this.Quantity,
+    };
+    this.generalService.buyProduct(buyOrderRequest).subscribe(
+      (res) => {
+      }
+    );
   }
  
 }

@@ -62,7 +62,7 @@
                                     <button onclick="this.parentNode.querySelector( 'input[type=number]').stepUp() " class="plus "></button>
                                 </div>
                             </td>
-                            <td>@mdo</td>
+                            <td>{{price * Quantity}}</td>
                         </tr>
                         <tr>
                             <th>2</th>
@@ -108,25 +108,17 @@
                         <tbody>
                             <tr>
                                 <th>1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>ewertr</td>
-                                <td> sfsdf </td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>ewertr</td>
-                                <td> sfsdf </td>
-                                <td>@mdo</td>
+                                <td>{{fullName}}</td>
+                                <td>{{price}}</td>
+                                <td>{{Quantity}}</td>
+                                <td> {{ordType}} </td>
+                                <td>{{price * Quantity}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">BUY</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onBuyFormSubmit()">BUY</button>
                 </div>
             </div>
         </div>
