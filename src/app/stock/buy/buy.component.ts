@@ -14,7 +14,6 @@ import { StockDetails } from 'src/assets/stockdetails';
 export class BuyComponent implements OnInit {
 
   fullName: String;
-  stockList: any;
   selectStocks = 
   [
     { "ticker": "ADN", "name": "ADN Industries", "price": 740 },

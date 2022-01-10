@@ -37,7 +37,7 @@
                             <td>
                                 <div class="dropdown col-md-5 ">
                                     <div id="myDropdown" class="dropdown-content">
-                                        <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (keyup)="fetchSeries()" (change)="datecalled()" />
+                                        <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (mousedown)="fetchSeries()" (change)="datecalled()" />
                                         <datalist id="stoc">
                                             <option *ngFor="let sd of searchResult" >{{sd.name}}</option>
                                         </datalist >
@@ -47,7 +47,7 @@
                             <td style="max-width: 5px; padding:0%;">
                                 <div class="number-input">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="quantity" id="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="Quantity" >
+                                    <input class="quantity" id="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="Quantity" min="1">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                 </div>
                             </td>
