@@ -17,87 +17,64 @@
             </ul>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Stocks Traded</h5>
-            <table class="table table-bordered ">
-                <thead>
-                    <tr>
-                        <th scope="col">S.no</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col" style="max-width: 5px;">Quantity</th>
-                        <th scope="col" style="max-width: 10px;">Type</th>
-                        <th scope="col">Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td style="max-width: 5px; padding:0%;">
-                            <div class="number-input">
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                            </div>
-                        </td>
-                        <td style="max-width: 10px; padding:0%;"><select class="limit">
+            <div [formGroup]="buyForm" id="buyComponentFormTage" (ngSubmit)="onBuyFormSubmit()">
+                <h5 class="card-title">Stocks Traded</h5>
+
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th scope="col">check</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col" style="max-width: 5px;">Quantity</th>
+                            <th scope="col" style="max-width: 10px;">Type</th>
+                            <th scope="col" style="max-width: 10px;" *ngIf="displayPriceForLimitOrder">Limit</th>
+                            <th scope="col">Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let stock of selectStocks">
+                            <th><input type="checkbox" value="select-stock"></th>
+                            <td> {{ stock.name }}</td>
+                            <td>{{ stock.price }}</td>
+                            <td style="max-width: 5px; padding:0%;">
+                                <div class="number-input">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                    <input class="quantity" id="quantity" min="0" name="quantity" value="1" type="number" formControlName="quantity">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                </div>
+                            </td>
+                            <td style="max-width: 10px; padding:0%;"><select class="limit" formControlName="orderType" (change)="onOrderTypeChange()">
                             <option value="market" selected class= "limit">Market Order</option>
-                            <option value="limit" class= "limit" >Limit Order</option>
+                            <option value="limit" class= "limit" #limit >Limit Order</option>
                           </select></td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td style="max-width: 5px; padding:0%;">
-                            <div class="number-input">
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                            </div>
-                        </td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td style="max-width: 5px; padding:0%;">
-                            <div class="number-input">
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                <input class="quantity" min="0" name="quantity" value="1" type="number">
-                                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                            </div>
-                        </td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td style="max-width: 5px; padding:0%;" *ngIf="displayPriceForLimitOrder">
+                                <div class="number-input">
+                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                    <input class="quantity" id="price" min="0" name="quantity" value=" 1 " type="number" formControlName="price " (keyup)="onPriceChange() ">
+                                    <button onclick="this.parentNode.querySelector( 'input[type=number]').stepUp() " class="plus "></button>
+                                </div>
+                            </td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="row">
                 <div class="col" style="text-align: right;">
                     <button class="btn btn-primary" style="font-size: 18px;" data-bs-toggle="modal" data-bs-target="#popup">BUY</button>
                 </div>
             </div>
+
         </div>
 
     </div>
@@ -106,11 +83,11 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title">Conform SELL</h2>
+                    <h2 class="modal-title">Conform Buy</h2>
                     <button class="btn-close" type="button" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-bordered ">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">S.no</th>
@@ -142,7 +119,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">BUY</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="fetchPortfolio()">BUY</button>
                 </div>
             </div>
         </div>
