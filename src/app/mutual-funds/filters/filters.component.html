@@ -1,14 +1,29 @@
 <div class="container">
-    <div class="card text-black bg-light mb-3 px-4 py-2">
-        <form class="form-inline">
+    <div class="card text-black bg-light mb-3 px-3 py-2">
+        <form class="form-inline" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
                 <h4><b>Filters</b></h4>
                 <div class="col py-2">
                     <div class="row">
                         <h6><b>Fund type(s):</b></h6>
                     </div>
-                    <div class="row">
-                        <input type="checkbox">
+                    <div class="row px-4">
+                        <div class="form-switch form-check py-2">
+                            <label class="form-check-label" for="equityFund">Equity funds</label>
+                            <input class="form-check-input" type="checkbox" id="equityFund" formControlName="equity">
+                        </div>
+                    </div>
+                    <div class="row px-4">
+                        <div class="form-switch form-check py-2">
+                            <label class="form-check-label" for="debtFund">Debt funds</label>
+                            <input class="form-check-input" type="checkbox" id="debtFund" formControlName="debt">
+                        </div>
+                    </div>
+                    <div class="row px-4">
+                        <div class="form-switch form-check py-2">
+                            <label class="form-check-label" for="flexiFund">Flexi Cap funds</label>
+                            <input class="form-check-input" type="checkbox" id="flexiFund" formControlName="flexi">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -20,48 +35,74 @@
                     <div class="row">
                         <h6><b>Choose AMC(s):</b></h6>
                     </div>
-                    <div class="row">
-                        <input type="checkbox">
+                    <div class="row px-4">
+                        <div class="form-switch form-check py-2">
+                            <label class="form-check-label" for="tataAmc">TATA</label>
+                            <input class="form-check-input" type="checkbox" id="tataAmc" formControlName="tata_amc">
+                        </div>
                     </div>
+
+                    <div class="row px-4">
+                        <div class="form-switch form-check py-2">
+                            <label class="form-check-label" for="iciciAmc">ICICI</label>
+                            <input class="form-check-input" type="checkbox" id="iciciAmc" formControlName="icici_amc">
+                        </div>
+                    </div>
+
+                    <div class="row px-4">
+                        <div class="form-switch form-check py-2">
+                            <label class="form-check-label" for="ppfasAmc">PPFAS</label>
+                            <input class="form-check-input" type="checkbox" id="ppfasAmc" formControlName="ppfas_amc">
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
             <hr>
 
-            <div class="row py-3">
-                <div class="col py-2">
+            <div class="row">
+                <div class="col">
                     <div class="row">
                         <h6><b>Minimum Investment:</b></h6>
                     </div>
                     <div class="row">
-                        <ngx-slider [(value)]="value_min_invest" [options]="options_min_invest"></ngx-slider>
+                        <ngx-slider [(value)]="value_min_invest" [options]="options_min_invest"
+                            formControlName="minSlider"></ngx-slider>
                     </div>
                 </div>
             </div>
 
             <hr>
 
-            <div class="row py-3">
-                <div class="col py-2">
+            <div class="row">
+                <div class="col">
                     <div class="row">
-                        <h6><b>Average CAGR:</b></h6>
+                        <h6><b>3 year returns:</b></h6>
                     </div>
                     <div class="row">
-                        <ngx-slider [(value)]="value_cagr" [options]="options_cagr"></ngx-slider>
+                        <ngx-slider [(value)]="value_returns" [options]="options_returns" formControlName="returnsSlider">
+                        </ngx-slider>
                     </div>
                 </div>
             </div>
 
             <hr>
 
-            <div class="row py-3">
+            <div class="row">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-outline-warning">Search</button>
+                </div>
+            </div> <br>
+
+            <!-- <div class="row py-3">
                 <div class="col-auto">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col-auto">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </div>
-            </div>
+            </div> -->
 
 
 

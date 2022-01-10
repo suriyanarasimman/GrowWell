@@ -16,10 +16,14 @@
 
                 <div class="row px-3 py-3">
 
-                    <div class="col-6">
+                    <!-- <div class="col-6">
                         <div class="row">
-                            Code: {{fund.scheme_code}}
+                            Current Value: {{fund.nav}}
                         </div>
+                        <div class="row">
+                            Last updated on: {{fund.nav}}
+                        </div>
+                        <hr>
                         <div class="row">
                             Category: {{fund.fund_category}}
                         </div>
@@ -27,18 +31,23 @@
                             Min. Investment: {{fund.min_investment}}
                         </div>
                         <div class="row">
-                            3-year CAGR: {{fund.cagr}}
+                            3-year returns: {{fund.3yr_returns}}
                         </div>
+                    </div> -->
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-success"> ADD TO CART </button>
                     </div>
 
 
+<!-- 
                     <div class="col-auto py-2">
                         //graph
-                    </div>
+                    </div> -->
 
                 </div>
 
-                <div class="row py-3">
+                <!-- <div class="row py-3">
                     <div class="col-auto">
                         <button type="button" class="btn btn-outline-success">+ LUMPSUM</button>
                     </div>
@@ -48,7 +57,7 @@
                     <div class="col-auto">
                         <button type="button" class="btn btn-outline-warning">+ WATCHLIST</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
