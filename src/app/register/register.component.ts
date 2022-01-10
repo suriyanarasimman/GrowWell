@@ -36,25 +36,15 @@ export class RegisterComponent implements OnInit {
   country=new FormControl(null,[Validators.required]);
   postalcode=new FormControl('',[Validators.required,Validators.minLength(6)]);
   type=new FormControl(null,[Validators.required]);
+  
 
 
-  constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder) { 
-
-    var auth_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJfZW1haWwiOiJib3BlbGE4NjA5QHVuaWdlb2wuY29tIiwiYXBpX3Rva2VuIjoiOVVjX0dQZ3RTWTBhNmN4SElIMGlqWVNNNzJwRmdHdTNaYXY1cjB0TVBiRU95ZzlfTUUyd2dqbWRsVFloRjByUThsQSJ9LCJleHAiOjE2NDE0MDY1MTZ9.YqW4_SXa9zdJyM8FMmZJ5qioIkAuajy7P4WZcOcYfTQ";
-
-    this.httpOptions = {
-      headers: new HttpHeaders({
-       'Accept': 'application/json',
-      'Authorization': `Bearer ${auth_token}`
-        
-      }),
-    };
-
-  }
+  constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder) { }
 
  
 
   ngOnInit(): void {
+    this.getResgistrationToken();
 
     this.registrationFormInit();
 
@@ -114,17 +104,48 @@ export class RegisterComponent implements OnInit {
       $('div.setup-panel div a.btn-primary').trigger('click');
   });
 
-  this.Routeservice.getCountries(this.httpOptions).subscribe((res)=>{
-    res.filter(x=>{
-      
-      this.countries.push(x.country_name);
-    })
-  })
+  
 
   
 
   }
 
+
+  CountriesList(token){
+    this.httpOptions = {
+      headers: new HttpHeaders({
+       'Accept': 'application/json',
+      'Authorization': `Bearer ${token}`
+        
+      }),
+    };
+
+    this.Routeservice.getCountries(this.httpOptions).subscribe((res)=>{
+      res.filter(x=>{
+        
+        this.countries.push(x.country_name);
+      })
+      console.log(this.countries);
+    })
+  }
+
+  getResgistrationToken(){
+    var httpOptions = {
+      headers: new HttpHeaders({
+       'Accept': 'application/json',
+       "api-token": "9Uc_GPgtSY0a6cxHIH0ijYSM72pFgGu3Zav5r0tMPbEOyg9_ME2wgjmdlTYhF0rQ8lA",
+      "user-email": "bopela8609@unigeol.com"
+        
+      }),
+    };
+
+    this.Routeservice.getToken(httpOptions).subscribe((res)=>{
+
+      console.log(res);
+      this.CountriesList(res.auth_token);
+
+    });
+  }
   getState(country){
     this.Routeservice.getStates(country,this.httpOptions).subscribe((res)=>{
       this.states=[];

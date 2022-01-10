@@ -1,0 +1,85 @@
+<app-header></app-header>
+
+<section class="light">
+	<div class="container py-2">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle">Financial Products</div>
+        
+
+		<article class="postcard light blue">
+			<a class="postcard__img_link" [routerLink]="['/wealth']">
+				<img class="postcard__img" src="/assets/images/wealth-management.jpg" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a [routerLink]="['/wealth']">Wealth Management Products</a></h1>
+				<div class="postcard__subtitle small">
+					<time >
+						<i class="fa fa-calendar-alt mr-2">{{today | date:'fullDate'}}</i>
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">With GrowWell Wealth Management Products, we will be focusing on your success and remaining committed to helping you grow your wealth and pursue your financial goals.To know more about the products click the buy product button below.</div>
+				<ul class="postcard__tagbox">
+					
+                    <li class="tag__item play blue">
+						<a [routerLink]="['/wealth']"><i class="fa fa-shopping-cart mr-2"></i> Buy Products</a>
+					</li>
+
+                
+                    <popover-content title="Available Grow Well Wealth Products" #myPopover popoverPlacement="top" [popoverAnimation]="true" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true" popoverSize="auto" >
+                    <ol>
+                        <h6>
+                      <li *ngFor="let x of wealthProduct">
+                          {{x | titlecase}}
+                      </li>
+                    </h6>
+                    </ol>
+                   </popover-content>
+
+					<li class="tag__item play blue" id="info" [popover]="myPopover" ><i class="fa fa-info-circle mr-2"></i> Product Info</li>
+                    
+					
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light red">
+			<a class="postcard__img_link" [routerLink]="['/income']">
+				<img class="postcard__img" src="/assets/images/income-management.jpg" alt="Image Title" />	
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title red"><a [routerLink]="['/income']">Income Products</a></h1>
+				<div class="postcard__subtitle small">
+					<time >
+						<i class="fa fa-calendar-alt mr-2">{{today | date:'fullDate'}}</i>
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">With GrowWell Income Products, we will be focusing on your finance value which will gives you a value to your financal goals.To know more about the products click on buy button below.</div>
+				<ul class="postcard__tagbox">
+					
+					
+					<li class="tag__item play red">
+						<a [routerLink]="['/income']"><i class="fa fa-shopping-cart mr-2"></i> Buy Products</a>
+					</li>
+
+                    <popover-content title="Available Grow Well Wealth Products" #myPopover2 popoverPlacement="top" [popoverAnimation]="true" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true" popoverSize="auto" >
+                        <ol>
+                            <h6>
+                          <li *ngFor="let x of incomeProduct">
+                            {{x | titlecase}}
+                          </li>
+                           </h6>
+                        </ol>
+                       </popover-content>
+    
+                        <li class="tag__item play red" id="info" [popover]="myPopover2" ><i class="fa fa-info-circle mr-2"></i> Product Info</li>
+
+				</ul>
+			</div>
+		</article>
+		
+		
+	</div>
+</section>
+
+<app-footer></app-footer>
+

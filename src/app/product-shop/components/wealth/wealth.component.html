@@ -1,0 +1,143 @@
+
+<div class="container text-center" *ngIf="pageLoader">
+    <img src="/assets/images/loader.gif" />
+  </div>
+<div *ngIf="!pageLoader">
+    <app-header></app-header>
+    <div class="container-fluid d-flex justify-content-center">
+        
+        <h1 class="display-2" id="heading">Wealth Products !</h1>
+      
+  </div>
+<div class="container-fluid d-flex justify-content-center">
+    <div class="row mt-1" >
+        <div class="col-sm-6" *ngFor="let product of wealthProduct;let i=index">
+            <div class="card p-3">
+                <div class="d-flex justify-content-between align-items-center ">
+                    <div class="mt-2">
+                        <img src="/assets/images/logo.png" height="50px">
+                        <div class="mt-5">
+                            <h5 class="text-uppercase mb-0">{{product.productName | titlecase}}</h5>
+                            <h1 class="main-heading mt-0">{{product.type | titlecase}}</h1>
+                            <!-- <div class="d-flex flex-row user-ratings">
+                                <div class="ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                <h6 class="text-muted ml-1">4/5</h6>
+                            </div> -->
+                        </div>
+                    </div>
+                    
+                    <div class="image"> <img src='{{ "/assets/images/" + product.type + ".png" }}' width="140"> </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-2 mb-2"> <span class="badge bg-success">Buy Price : {{product.buyPrice}}</span>
+                    <div > <span class="badge bg-danger">Market Price : {{product.marketPrice}}</span></div>
+                </div>
+                <p><b>Product Description:</b></p>
+                <p>{{product.productDescription}} </p> <button class="btn btn-primary" (click)="buyProduct(product)" data-bs-toggle="modal" data-bs-target="#myModal">Buy <i class="fa fa-shopping-cart"></i></button>
+            </div>
+        </div>
+
+
+        <!-- <div class="col-sm-6">
+            <div class="card p-3">
+                <div class="d-flex justify-content-between align-items-center ">
+                    <div class="mt-2">
+                        <h4 class="text-uppercase">Ikea</h4>
+                        <div class="mt-5">
+                            <h5 class="text-uppercase mb-0">Blanda Matt</h5>
+                            <h1 class="main-heading mt-0">VASE</h1>
+                            <div class="d-flex flex-row user-ratings">
+                                <div class="ratings"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                                <h6 class="text-muted ml-1">4/5</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image"> <img src='/assets/images/pl.png' width="140"> </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-2 mb-2"> <span>Available colors</span>
+                    <div class="colors"> <span></span> <span></span> <span></span> <span></span> </div>
+                </div>
+                <p>A great option weather you are at office or at home. </p> <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div> -->
+
+
+        
+        
+    </div>
+</div>
+<br/>
+<br/>
+
+</div>
+
+
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="fa fa-info"></i>
+				</div>				
+				<h4 class="modal-title w-100">Confirmation</h4>	
+			</div>
+			<div class="modal-body">
+				<p class="text-center">Do you Purchase this Product</p>
+			</div>
+			<div
+             class="modal-footer">
+             <button class="btn btn-danger btn-block" id="cancelButton" (click)="confirmProduct(false)" data-bs-dismiss="modal">Cancel <i class="fa fa-times"></i></button>
+				<button class="btn btn-primary btn-block" (click)="confirmProduct(true)" id="buyButton" data-bs-dismiss="modal">Buy <i class="fa fa-shopping-cart"></i></button>
+			</div>
+		</div>
+	</div>
+</div>   
+
+
+
+<div id="successModal" class="modal fade">
+	<div class="modal-dialog modal-buy">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="fa fa-check"></i>
+				</div>				
+				<img src="/assets/images/celebration.gif" class="modal-title w-100">
+			</div>
+			<div class="modal-body">
+				<p class="text-center h6">Congratulations ! Your Product is Purchased and added to Portfolio</p>
+			</div>
+			<div
+             class="modal-footer">
+             <button class="btn btn-primary btn-block" id="cancelButton"  data-bs-dismiss="modal">Ok <i class="fa fa-check"></i></button>
+				
+			</div>
+		</div>
+	</div>
+</div>  
+
+
+<div id="errorModal" class="modal fade">
+	<div class="modal-dialog modal-error">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="fa fa-times"></i>
+				</div>				
+				<img src="/assets/images/error.gif" class="modal-title w-100">
+			</div>
+			<div class="modal-body">
+				<p class="text-center h6">Sorry !! Product Already Exists in Portfolio</p>
+			</div>
+			<div
+             class="modal-footer">
+             <button class="btn btn-danger btn-block" id="cancelButton"  data-bs-dismiss="modal">Ok <i class="fa fa-check"></i></button>
+				
+			</div>
+		</div>
+	</div>
+</div>  
+
+
+
+<app-footer></app-footer>
+

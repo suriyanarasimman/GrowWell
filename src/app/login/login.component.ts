@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("userName", response.userName);
         localStorage.setItem("userType", response.userType);
         localStorage.setItem("authenticated", response.authenticated);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/shop']);
       }
       else {
         this.invalidCredentials=true;

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA,NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,11 @@ import { RegisterComponent } from './register/register.component';
 
 import { StockhistoryComponent } from './stockhistory/stockhistory.component';
 import { FormsModule } from '@angular/forms';
+import { ProductShopComponent } from './product-shop/product-shop.component';
+import { WealthComponent } from './product-shop/components/wealth/wealth.component';
+import { IncomeComponent } from './product-shop/components/income/income.component';
+import {PopoverModule} from "ngx-smart-popover";
+
 
 
 @NgModule({
@@ -26,6 +31,10 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     StockhistoryComponent,
+    ProductShopComponent,
+    WealthComponent,
+    IncomeComponent,
+    
     
 
 
@@ -35,9 +44,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    PopoverModule
   ],
   providers: [GeneralService],
-  bootstrap: [AppComponent,LoginComponent]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
