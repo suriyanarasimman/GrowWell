@@ -44,6 +44,6 @@ import { SellComponent } from './stock/sell/sell.component';
     FormsModule
   ],
   providers: [GeneralService],
-  bootstrap: [AppComponent,LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

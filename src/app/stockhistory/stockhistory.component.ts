@@ -31,6 +31,7 @@ export class StockhistoryComponent implements OnInit {
   datecalled(){
     console.log(this.dateInput)
     this.subscription.unsubscribe();
+    console.log(this.searchInput)
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].fullnames == this.searchInput){
         this.selected = this.searchResult[i].symbo;

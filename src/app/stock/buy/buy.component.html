@@ -17,13 +17,12 @@
             </ul>
         </div>
         <div class="card-body">
-            <div [formGroup]="buyForm" id="buyComponentFormTage" (ngSubmit)="onBuyFormSubmit()">
+            <div>
                 <h5 class="card-title">Stocks Traded</h5>
-
                 <table class="table table-bordered ">
                     <thead>
                         <tr>
-                            <th scope="col">check</th>
+                            <th scope="col">S.no</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col" style="max-width: 5px;">Quantity</th>
@@ -33,25 +32,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let stock of selectStocks">
-                            <th><input type="checkbox" value="select-stock"></th>
-                            <td> {{ stock.name }}</td>
-                            <td>{{ stock.price }}</td>
+                        <tr>
+                            <th>1</th>
+                            <td>
+                                <div class="dropdown col-md-5 ">
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (keyup)="fetchSeries()" (change)="datecalled()" />
+                                        <datalist id="stoc">
+                                            <option *ngFor="let sd of searchResult" >{{sd.name}}</option>
+                                        </datalist >
+                                    </div>
+                                </div>
+                            <td>{{price}}</td>
                             <td style="max-width: 5px; padding:0%;">
                                 <div class="number-input">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="quantity" id="quantity" min="0" name="quantity" value="1" type="number" formControlName="quantity">
+                                    <input class="quantity" id="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="Quantity" >
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                                 </div>
                             </td>
-                            <td style="max-width: 10px; padding:0%;"><select class="limit" formControlName="orderType" (change)="onOrderTypeChange()">
+                            <td style="max-width: 10px; padding:0%;"><select class="limit" (change)="onOrderTypeChange(myInput.value)"  #myInput>
                             <option value="market" selected class= "limit">Market Order</option>
                             <option value="limit" class= "limit" #limit >Limit Order</option>
                           </select></td>
                             <td style="max-width: 5px; padding:0%;" *ngIf="displayPriceForLimitOrder">
                                 <div class="number-input">
                                     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="quantity" id="price" min="0" name="quantity" value=" 1 " type="number" formControlName="price " (keyup)="onPriceChange() ">
+                                    <input class="quantity" id="price" min="0" name="quantity" type="number">
                                     <button onclick="this.parentNode.querySelector( 'input[type=number]').stepUp() " class="plus "></button>
                                 </div>
                             </td>
@@ -119,7 +126,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="fetchPortfolio()">BUY</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">BUY</button>
                 </div>
             </div>
         </div>
