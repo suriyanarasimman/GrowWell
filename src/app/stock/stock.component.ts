@@ -12,7 +12,7 @@ export class StockComponent implements OnInit {
   displayBuy: boolean = false;
   displaySell: boolean = false;
   // username: string = localStorage.getItem('username');
-  username: string = "abc";
+  username: string = localStorage.getItem('userName');;
 
   constructor(private productService: GeneralService) {}
 

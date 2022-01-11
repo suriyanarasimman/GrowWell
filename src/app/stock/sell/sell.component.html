@@ -18,7 +18,7 @@
         </div>
         <div class="card-body">
             <div>
-                <h5 class="card-title">Stocks Traded</h5>
+                <h5 class="card-title">Stocks Available</h5>
                 <table class="table table-bordered ">
                     <thead>
                         <tr>
@@ -34,10 +34,10 @@
                     <tbody>
                         <tr>
                             <th>1</th>
-                            <td style="max-width: 5px;">
+                            <td>
                                 <div class="dropdown">
                                     <div id="myDropdown" class="dropdown-content">
-                                        <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (mousedown)="fetchSeries()" (change)="datecalled()" />
+                                        <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (mousedown)="fetchSeries()" (change)="datecalled()" required>
                                         <datalist id="stoc">
                                             <option *ngFor="let sd of searchResult" >{{sd.productName}}</option>
                                         </datalist >
@@ -45,33 +45,26 @@
                                 </div>
                             </td>
                             <td>{{price}}</td>
-                            <td style="max-width: 5px; padding:0%;">
+                            <td >
                                 <div class="number-input">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="quantity" id="quantity" min="0" name="quantity" value="1" type="number" [(ngModel)]="Quantity" min="1" max={{QuantityLimit}} >
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                    <button (click)="subQuantity()"></button>
+                                    <input class="quantity" id="quantity" name="quantity" value="1" type="number" [(ngModel)]="Quantity" min="1">
+                                    <button  class="plus" (click)="addQuantity()"></button>
                                 </div>
                             </td>
-                            <td style="max-width: 10px; padding:0%;"><select class="limit" (change)="onOrderTypeChange(myInput.value)"  #myInput>
+                            <td ><select class="limit" (change)="onOrderTypeChange(myInput.value)"  #myInput>
                             <option value="market" selected class= "limit">Market Order</option>
                             <option value="limit" class= "limit" #limit >Limit Order</option>
                           </select></td>
-                            <td style="max-width: 5px; padding:0%;" *ngIf="displayPriceForLimitOrder">
+                            <td *ngIf="displayPriceForLimitOrder">
                                 <div class="number-input">
-                                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                                    <input class="quantity" id="price" min="0" name="quantity" type="number">
-                                    <button onclick="this.parentNode.querySelector( 'input[type=number]').stepUp() " class="plus "></button>
+                                    <button  (click)="subLimit()"></button>
+                                    <input class="quantity" id="price" min="0" name="quantity" type="number" [(ngModel)]="Limit">
+                                    <button class="plus" (click)="addLimit()"></button>
                                 </div>
                             </td>
-                            <td>{{price * Quantity}}</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <td *ngIf="!displayPriceForLimitOrder">{{price * Quantity}}</td>
+                            <td *ngIf="displayPriceForLimitOrder">{{Limit * Quantity}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -102,7 +95,9 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Type</th>
-                                <th scope="col">Cost</th>
+                                <th scope="col" *ngIf="displayPriceForLimitOrder">Req Price</th>
+                                <th scope="col" *ngIf="!displayPriceForLimitOrder">Cost</th>
+                                <th scope="col" *ngIf="displayPriceForLimitOrder">Req Cost</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,7 +107,9 @@
                             <td>{{price}}</td>
                             <td>{{Quantity}}</td>
                             <td> {{ordType}} </td>
-                            <td>{{price * Quantity}}</td>
+                            <td *ngIf="displayPriceForLimitOrder">{{Limit}}</td>
+                            <td *ngIf="!displayPriceForLimitOrder">{{price * Quantity}}</td>
+                            <td *ngIf="displayPriceForLimitOrder">{{Limit * Quantity}}</td>
                         </tr>
 
                         </tbody>

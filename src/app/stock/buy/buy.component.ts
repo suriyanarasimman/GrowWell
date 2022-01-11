@@ -31,11 +31,13 @@ export class BuyComponent implements OnInit {
     { "ticker": "WIS", "name": "Wayne Industries", "price": 800 }
 ];
 
-  userName: string = "abc";
+  userName: string = localStorage.getItem('userName');;
   displayPriceForLimitOrder: boolean = false;
   searchInput: String = '';
   price: number;
-  Quantity:number;
+  pricesent:number;
+  Quantity:number = 1;
+  Limit:number;
   searchResult: Array<IStocks> = [];
   ordType:String = "Market Order";
   symbol:String;
@@ -55,6 +57,8 @@ export class BuyComponent implements OnInit {
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].name == this.searchInput){
         this.price = this.searchResult[i].price;
+        this.Limit = this.searchResult[i].price;
+        this.pricesent = this.price;
         this.symbol = this.searchResult[i].ticker;
         console.log(this.price)
         console.log(this.Quantity)
@@ -76,14 +80,16 @@ export class BuyComponent implements OnInit {
     }
   }
   onBuyFormSubmit() {
-
+    if(this.displayPriceForLimitOrder){this.pricesent = this.Limit;}
+    console.log("Inside onBuyFormSubmut price to be sent: " + this.pricesent)
+    console.log("Username: " + this.userName)
     let buyOrderRequest = {
       userName: this.userName,
       productName: this.fullName,
       productID: this.symbol,
       productType: 'STOCK',
       subcategory: 'STOCK',
-      buyPrice: this.price,
+      buyPrice: this.pricesent,
       marketPrice: this.price,
       quantity: this.Quantity,
     };
@@ -91,6 +97,20 @@ export class BuyComponent implements OnInit {
       (res) => {
       }
     );
+  }
+  addQuantity(){
+    this.Quantity = this.Quantity + 1;
+  }
+  subQuantity(){
+    if(this.Quantity > 1)
+    this.Quantity = this.Quantity - 1;
+  }
+  addLimit(){
+    this.Limit = this.Limit + 1;
+  }
+  subLimit(){
+    if(this.Limit > 1)
+    this.Limit = this.Limit - 1;
   }
  
 }

@@ -12,11 +12,13 @@ export class SellComponent implements OnInit {
   fullName: String;
 
 
-  userName: string = "abc";
+  userName: string = localStorage.getItem('userName');;
   displayPriceForLimitOrder: boolean = false;
   searchInput: String = '';
   price: number;
-  Quantity:number;
+  pricesent:number;
+  Quantity:number = 1;
+  Limit:number;
   QuantityLimit:number = 1;
   searchResult: any;
   ordType:String = "Market Order";
@@ -38,6 +40,8 @@ export class SellComponent implements OnInit {
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].productName == this.searchInput){
         this.price = this.searchResult[i].marketPrice;
+        this.Limit = this.searchResult[i].marketPrice;
+        this.pricesent = this.price;
         this.symbol = this.searchResult[i].productID;
         this.QuantityLimit = this.searchResult[i].quantity;
         console.log(this.price)
@@ -72,14 +76,14 @@ export class SellComponent implements OnInit {
     }
   }
   onSellFormSubmit() {
-
+    if(!this.displayPriceForLimitOrder){this.pricesent = this.Limit;}
     let sellOrderRequest = {
       userName: this.userName,
       productName: this.fullName,
       productID: this.symbol,
       productType: 'STOCK',
       subcategory: 'STOCK',
-      buyPrice: this.price,
+      buyPrice: this.pricesent,
       marketPrice: this.price,
       quantity: this.Quantity,
     };
@@ -92,6 +96,21 @@ export class SellComponent implements OnInit {
         }
       },
     );
+  }
+  addQuantity(){
+    if(this.Quantity < this.QuantityLimit)
+    this.Quantity = this.Quantity + 1;
+  }
+  subQuantity(){
+    if(this.Quantity > 1)
+    this.Quantity = this.Quantity - 1;
+  }
+  addLimit(){
+    this.Limit = this.Limit + 1;
+  }
+  subLimit(){
+    if(this.Limit > 1)
+    this.Limit = this.Limit - 1;
   }
  
 
