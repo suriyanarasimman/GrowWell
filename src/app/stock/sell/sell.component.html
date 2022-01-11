@@ -34,8 +34,8 @@
                     <tbody>
                         <tr>
                             <th>1</th>
-                            <td>
-                                <div class="dropdown col-md-5 ">
+                            <td style="max-width: 5px;">
+                                <div class="dropdown">
                                     <div id="myDropdown" class="dropdown-content">
                                         <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (mousedown)="fetchSeries()" (change)="datecalled()" />
                                         <datalist id="stoc">
@@ -43,6 +43,7 @@
                                         </datalist >
                                     </div>
                                 </div>
+                            </td>
                             <td>{{price}}</td>
                             <td style="max-width: 5px; padding:0%;">
                                 <div class="number-input">
