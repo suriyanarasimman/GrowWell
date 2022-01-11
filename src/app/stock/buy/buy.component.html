@@ -23,7 +23,7 @@
                     <thead>
                         <tr>
                             <th scope="col">S.no</th>
-                            <th scope="col">Name</th>
+                            <th scope="col" style="max-width: 5px; padding:0%;">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col" style="max-width: 5px;">Quantity</th>
                             <th scope="col" style="max-width: 10px;">Type</th>
@@ -34,15 +34,16 @@
                     <tbody>
                         <tr>
                             <th>1</th>
-                            <td>
-                                <div class="dropdown col-md-5 ">
+                            <td style="max-width: 5px; padding:0%;">
+                                <div class="dropdown">
                                     <div id="myDropdown" class="dropdown-content">
-                                        <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (mousedown)="fetchSeries()" (change)="datecalled()" />
+                                        <input list="stoc" type="text" [(ngModel)]="searchInput" id="myInput" (mousedown)="fetchSeries()" (change)="datecalled()">
                                         <datalist id="stoc">
                                             <option *ngFor="let sd of searchResult" >{{sd.name}}</option>
                                         </datalist >
                                     </div>
                                 </div>
+                            </td>
                             <td>{{price}}</td>
                             <td style="max-width: 5px; padding:0%;">
                                 <div class="number-input">
