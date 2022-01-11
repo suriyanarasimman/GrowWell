@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as mf_data_module from "src/app/mutual-funds/mf_data.json";
 import { GeneralService } from 'src/app/services/general.service';
+// import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-filters',
@@ -11,14 +12,14 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class FiltersComponent implements OnInit {
 
-  value_min_invest: number = 200;
+  // value_min_invest: number = 200;
   value_returns:number=10;
 
-  options_min_invest: Options = {
-    floor: 0,
-    ceil: 1000,
-    step:100
-  };
+  // options_min_invest: Options = {
+  //   floor: 0,
+  //   ceil: 1000,
+  //   step:100
+  // };
 
   options_returns: Options = {
     floor: 0,
@@ -36,11 +37,11 @@ export class FiltersComponent implements OnInit {
       debt: new FormControl(),
       flexi: new FormControl(),
 
-      tata_amc: new FormControl(),
-      icici_amc: new FormControl(),
-      ppfas_amc: new FormControl(),
+      // tata_amc: new FormControl(),
+      // icici_amc: new FormControl(),
+      // ppfas_amc: new FormControl(),
 
-      minSlider: new FormControl(),
+      // minSlider: new FormControl(),
       returnsSlider: new FormControl()
     });
   }
@@ -50,49 +51,16 @@ export class FiltersComponent implements OnInit {
     "name":"",
     "type":"",
     "min_investment":"",
-    "3yr_returns":"",
+    "cagr":"",
     "nav":"",
     "last_update":""
   }
   
   fund_data_array=[]
-
-  v_equity;
-  v_debt;
-  v_flexi;
-  v_icici_amc;
-  v_tata_amc;
-  v_ppfas_amc;
-  v_minSlider;
-  v_returnsSlider;
+  @Output() sendFundData=new EventEmitter<Array<Object>>();
 
   onSubmit(){
     this.fund_data_array=[]
-
-
-    if(this.form.get("equity").value){
-      this.v_equity="equity";
-    }
-    if(this.form.get("debt").value){
-
-      this.v_debt="debt";
-    }
-    if(this.form.get("flexi").value){
-      this.v_flexi="flexi";
-
-    }
-    if(this.form.get("tata_amc").value){
-      this.v_tata_amc="tata";
-
-    }
-    if(this.form.get("icici_amc").value){
-      this.v_icici_amc="icici";
-    }
-    if(this.form.get("ppfas_amc").value){
-      this.v_ppfas_amc="ppfas";
-
-    }
-
 
     mf_data_module.mf_data.forEach((obj)=>{
       
@@ -102,7 +70,7 @@ export class FiltersComponent implements OnInit {
             "name":response.meta.scheme_name,
             "type":obj.type,
             "min_investment":obj.min_investment,
-            "3yr_returns":obj['3yr_returns'],
+            "cagr":obj['3yr_returns'],
             "nav":response.data[0].nav,
             "last_update":response.data[0].date
           }
@@ -114,7 +82,7 @@ export class FiltersComponent implements OnInit {
         });
       
     });
-    
+    this.sendFundData.emit(this.fund_data_array);
     console.log(this.fund_data_array);
   }
 }
