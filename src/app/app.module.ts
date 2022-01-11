@@ -48,6 +48,6 @@ import { NgxSliderModule } from "@angular-slider/ngx-slider";
     NgxSliderModule
   ],
   providers: [GeneralService],
-  bootstrap: [AppComponent,LoginComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
