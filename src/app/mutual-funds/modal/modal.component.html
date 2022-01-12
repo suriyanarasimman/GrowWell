@@ -1,0 +1,39 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="cartModalLabel">Buy <b>{{fund_name}}</b></h5>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <div class="row">
+                Current value(NAV): {{fund_nav}}
+            </div>
+            <div class="row">
+                3 year returns: {{fund_cagr}} %
+            </div>
+            <div class="row">
+                Min. Investment: {{fund_min_investment}}
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-auto">
+                <button (click)="quantity=quantity+1">+</button>
+            </div>
+            <div class="col-auto">
+                <b>{{quantity}}</b>
+            </div>
+            <div class="col-auto">
+                <button (click)="quantity=quantity-1">-</button>
+            </div>
+        </div>
+        <br>
+
+        <b>Total payable amount:{{quantity*fund_nav}}</b>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onClose()">Close</button>
+        <button type="button" class="btn btn-primary">Buy</button>
+    </div>
+</div>

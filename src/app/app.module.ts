@@ -22,6 +22,7 @@ import { PortfolioComponent } from './mutual-funds/portfolio/portfolio.component
 import { CartComponent } from './mutual-funds/cart/cart.component';
 
 import { NgxSliderModule } from "@angular-slider/ngx-slider";
+import { ModalComponent } from './mutual-funds/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NgxSliderModule } from "@angular-slider/ngx-slider";
     FiltersComponent,
     PortfolioComponent,
     CartComponent,
+    ModalComponent,
     
 
 
