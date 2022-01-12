@@ -15,7 +15,7 @@
             <div class="card p-3">
                 <div class="d-flex justify-content-between align-items-center ">
                     <div class="mt-2">
-                        <img src="/assets/images/logo.png" height="50px">
+                        <img src="/assets/images/shop/logo.png" height="50px">
                         <div class="mt-5">
                             <h5 class="text-uppercase mb-0">{{product.productName | titlecase}}</h5>
                             <h1 class="main-heading mt-0">{{product.type | titlecase}}</h1>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     
-                    <div class="image"> <img src='{{ "/assets/images/" + product.type + ".png" }}' width="120"> </div>
+                    <div class="image"> <img src='{{ "/assets/images/shop/" + product.type + ".png" }}' width="120"> </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-2 mb-2"> <span class="badge bg-success">Buy Price : {{product.buyPrice}}</span>
                     <div > <span class="badge bg-danger">Market Price : {{product.marketPrice}}</span></div>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="image"> <img src='/assets/images/pl.png' width="140"> </div>
+                    <div class="image"> <img src='/assets/images/shop/pl.png' width="140"> </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center mt-2 mb-2"> <span>Available colors</span>
                     <div class="colors"> <span></span> <span></span> <span></span> <span></span> </div>
@@ -101,7 +101,7 @@
 				<div class="icon-box">
 					<i class="fa fa-check"></i>
 				</div>				
-				<img src="/assets/images/celebration.gif" class="modal-title w-100">
+				<img src="/assets/images/shop/celebration.gif" class="modal-title w-100">
 			</div>
 			<div class="modal-body">
 				<p class="text-center h6">Congratulations ! Your Product is Purchased and added to Portfolio</p>
@@ -123,7 +123,7 @@
 				<div class="icon-box">
 					<i class="fa fa-times"></i>
 				</div>				
-				<img src="/assets/images/error.gif" class="modal-title w-100">
+				<img src="/assets/images/shop/error.gif" class="modal-title w-100">
 			</div>
 			<div class="modal-body">
 				<p class="text-center h6">Sorry !! Product Already Exists in Portfolio</p>

@@ -20,6 +20,7 @@ import { ProductShopComponent } from './product-shop/product-shop.component';
 import { WealthComponent } from './product-shop/components/wealth/wealth.component';
 import { IncomeComponent } from './product-shop/components/income/income.component';
 import {PopoverModule} from "ngx-smart-popover";
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -34,6 +35,7 @@ import {PopoverModule} from "ngx-smart-popover";
     ProductShopComponent,
     WealthComponent,
     IncomeComponent,
+    HomeComponent,
     
     
 
