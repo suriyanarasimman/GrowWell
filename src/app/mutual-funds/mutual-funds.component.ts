@@ -8,15 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class MutualFundsComponent implements OnInit {
 
   funds:Array<Object>;
-  // funds = [
-  //   { scheme_name: "ICICI Prudential Large & Mid Cap Fund - Institutional Option - I - Growth", fund_house: "icici", scheme_type: "Open Ended Schemes", scheme_code: 100350,
-  //   fund_category: "hybrid", cagr:12, min_investment:100 },
-  //   { scheme_name: "icici tech", fund_house: "icici", scheme_type: "Open Ended Schemes", scheme_code: 100350,
-  //   fund_category: "hybrid", cagr:12, min_investment:100 },
-  //   { scheme_name: "icici tech", fund_house: "icici", scheme_type: "Open Ended Schemes", scheme_code: 100350,
-  //   fund_category: "hybrid", cagr:12, min_investment:100 }
-  // ]
-
+  modalOpened:Boolean=false;
   constructor() { }
 
   ngOnInit(): void {
@@ -24,10 +16,17 @@ export class MutualFundsComponent implements OnInit {
   }
 
   recievedData:Boolean=false;
-
-  getFundData(data:Array<Object>){
+  arr=[];
+  getFundData(data){
     this.funds=data;
     this.recievedData=true;
+  }
+
+  modalInject:any;
+  onBuy(fund:any){
+    // console.log(code);
+    this.modalOpened=true;
+    this.modalInject=fund;
   }
 
 }

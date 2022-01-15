@@ -12,24 +12,33 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class FiltersComponent implements OnInit {
 
-  // value_min_invest: number = 200;
-  value_returns:number=10;
-
-  // options_min_invest: Options = {
-  //   floor: 0,
-  //   ceil: 1000,
-  //   step:100
-  // };
+  value_returns: number = 10;
 
   options_returns: Options = {
     floor: 0,
-    ceil: 100,
-    step:10
+    ceil: 50,
+    step: 10
   };
 
-  form:FormGroup;
+  form: FormGroup;
 
-  constructor(private gs:GeneralService) { }
+  fund_data = {
+    "code": "",
+    "name": "",
+    "type": "",
+    "min_investment": "",
+    "cagr": "",
+    "nav": "",
+    "last_update": ""
+  }
+
+  fund_data_array = []
+  @Output() sendFundData = new EventEmitter<Array<Object>>();
+
+  mf_data_obj = mf_data_module.mf_data;
+  mf_data_filter;
+
+  constructor(private gs: GeneralService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -45,44 +54,44 @@ export class FiltersComponent implements OnInit {
       returnsSlider: new FormControl()
     });
   }
-  
-  fund_data={
-    "code":"",
-    "name":"",
-    "type":"",
-    "min_investment":"",
-    "cagr":"",
-    "nav":"",
-    "last_update":""
-  }
-  
-  fund_data_array=[]
-  @Output() sendFundData=new EventEmitter<Array<Object>>();
 
-  onSubmit(){
-    this.fund_data_array=[]
+  onSubmit() {
+    this.fund_data_array = []
+    // console.log(this.form.get("debt").value);
+    this.mf_data_filter = []
+    if (this.form.get("equity").value) {
+      this.mf_data_filter.push(this.mf_data_obj.filter((fund) => fund.type == "equity" && fund.cagr > this.form.get("returnsSlider").value));
+    }
 
-    mf_data_module.mf_data.forEach((obj)=>{
-      
-        this.gs.getFunds(obj.code).subscribe((response)=>{
-          this.fund_data={
-            "code":response.meta.scheme_code,
-            "name":response.meta.scheme_name,
-            "type":obj.type,
-            "min_investment":obj.min_investment,
-            "cagr":obj['3yr_returns'],
-            "nav":response.data[0].nav,
-            "last_update":response.data[0].date
+    if (this.form.get("debt").value) {
+      this.mf_data_filter.push(this.mf_data_obj.filter((fund) => fund.type == "debt" && fund.cagr > this.form.get("returnsSlider").value));
+    }
+
+    if (this.form.get("flexi").value) {
+      this.mf_data_filter.push(this.mf_data_obj.filter((fund) => fund.type == "flexi" && fund.cagr > this.form.get("returnsSlider").value));
+    }
+
+    if (!(this.form.get("equity").value || this.form.get("debt").value || this.form.get("flexi").value)) {
+      this.mf_data_filter.push(this.mf_data_obj.filter((fund) => fund.cagr > this.form.get("returnsSlider").value));
+    }
+
+    this.mf_data_filter.forEach((arr) => {
+      arr.forEach((obj) => {
+        this.gs.getFunds(obj.code).subscribe((response) => {
+          this.fund_data = {
+            "code": response.meta.scheme_code,
+            "name": response.meta.scheme_name,
+            "type": obj.type,
+            "min_investment": obj.min_investment,
+            "cagr": obj['cagr'],
+            "nav": response.data[0].nav,
+            "last_update": response.data[0].date
           }
-    
-          // console.log(response);
-          // console.log(this.fund_data);
-
           this.fund_data_array.push(this.fund_data);
         });
-      
+        this.mf_data_obj = mf_data_module.mf_data;
+      })
     });
     this.sendFundData.emit(this.fund_data_array);
-    console.log(this.fund_data_array);
   }
 }
