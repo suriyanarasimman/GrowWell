@@ -23,7 +23,7 @@
                     <button type="button" class="btn btn-danger" (click)="decrement()">-</button>
                 </div>
                 <div class="col-auto">
-                    <input type="text" name="quantity" class="form-control input-number" value="{{quantity}}" size="1"
+                    <input type="text" name="quantity" disabled class="form-control input-number" value="{{quantity}}" size="1"
                         formControlName="qty">
                 </div>
 
@@ -41,7 +41,7 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onClose()">Close</button>
             <div class="disabled">
-                <button type="submit" class="btn btn-primary" [disabled]="validateQty()">Buy</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="validateQty()">Buy</button>
             </div>
         </div>
     </div>

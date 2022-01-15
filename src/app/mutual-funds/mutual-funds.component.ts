@@ -16,8 +16,8 @@ export class MutualFundsComponent implements OnInit {
   }
 
   recievedData:Boolean=false;
-
-  getFundData(data:Array<Object>){
+  arr=[];
+  getFundData(data){
     this.funds=data;
     this.recievedData=true;
   }

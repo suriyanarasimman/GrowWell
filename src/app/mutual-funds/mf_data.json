@@ -4,42 +4,42 @@
             "code": 120594,
             "type":"equity",
             "amc":"icici",
-            "3yr_returns": "42.62",
+            "cagr": 42.62,
             "min_investment": "100"
         },
         {
             "code": 112096,
             "type":"debt",
             "amc":"icici",
-            "3yr_returns": "10.18",
+            "cagr": 10.18,
             "min_investment": "100"
         },
         {
             "code": 145206,
             "type":"equity",
             "amc":"tata",
-            "3yr_returns": "32.08",
+            "cagr": 32.08,
             "min_investment": "500"
         },
         {
             "code": 144546,
             "type":"flexi",
             "amc":"tata",
-            "3yr_returns": "20.19",
+            "cagr": 20.19,
             "min_investment": "500"
         },
         {
             "code": 143269,
             "type":"debt",
             "amc":"ppfas",
-            "3yr_returns": "4.26",
+            "cagr": 4.26,
             "min_investment": "1000"
         },
         {
             "code": 122639,
             "type":"flexi",
             "amc":"ppfas",
-            "3yr_returns": "31.06",
+            "cagr": 31.06,
             "min_investment": "1000"
         }
     ]
