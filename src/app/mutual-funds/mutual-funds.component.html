@@ -44,7 +44,7 @@
                             Last updated on: {{fund.last_update}}
                         </div>
                         <div class="row">
-                            3 year returns: {{fund.cagr}} %
+                            3 year CAGR: {{fund.cagr}} %
                         </div>
                         <div class="row">
                             Min. Investment: {{fund.min_investment}}
@@ -77,7 +77,7 @@
 
 
         <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="cartModalLabel"
-            aria-hidden="true" *ngIf="modalOpened">
+            aria-hidden="true" data-bs-backdrop="static" *ngIf="modalOpened">
             <div class="modal-dialog" role="document">
                 <app-modal [fund_data]="modalInject"></app-modal>
             </div>

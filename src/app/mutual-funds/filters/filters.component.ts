@@ -23,11 +23,27 @@ export class FiltersComponent implements OnInit {
 
   options_returns: Options = {
     floor: 0,
-    ceil: 100,
+    ceil: 50,
     step:10
   };
 
   form:FormGroup;
+    
+  fund_data={
+    "code":"",
+    "name":"",
+    "type":"",
+    "min_investment":"",
+    "cagr":"",
+    "nav":"",
+    "last_update":""
+  }
+  
+  fund_data_array=[]
+  @Output() sendFundData=new EventEmitter<Array<Object>>();
+
+  mf_data_obj=mf_data_module.mf_data;
+  mf_data_filter;
 
   constructor(private gs:GeneralService) { }
 
@@ -45,25 +61,26 @@ export class FiltersComponent implements OnInit {
       returnsSlider: new FormControl()
     });
   }
-  
-  fund_data={
-    "code":"",
-    "name":"",
-    "type":"",
-    "min_investment":"",
-    "cagr":"",
-    "nav":"",
-    "last_update":""
-  }
-  
-  fund_data_array=[]
-  @Output() sendFundData=new EventEmitter<Array<Object>>();
 
   onSubmit(){
     this.fund_data_array=[]
+    // console.log(this.form.get("debt").value);
+    this.mf_data_filter=[]
+    if(this.form.get("equity").value){
+      this.mf_data_filter.push(this.mf_data_obj.filter((fund)=>fund.type=="equity"));
+    }
 
-    mf_data_module.mf_data.forEach((obj)=>{
-      
+    if(this.form.get("debt").value){
+      this.mf_data_filter.push(this.mf_data_obj.filter((fund)=>fund.type=="debt"));
+    }
+
+    if(this.form.get("flexi").value){
+      this.mf_data_filter.push(this.mf_data_obj.filter((fund)=>fund.type=="flexi"));
+    }
+    console.log(this.mf_data_filter);
+
+    this.mf_data_filter.forEach((arr)=>{
+      arr.forEach((obj)=>{
         this.gs.getFunds(obj.code).subscribe((response)=>{
           this.fund_data={
             "code":response.meta.scheme_code,
@@ -80,7 +97,8 @@ export class FiltersComponent implements OnInit {
 
           this.fund_data_array.push(this.fund_data);
         });
-      
+        this.mf_data_obj=mf_data_module.mf_data;
+      })
     });
     this.sendFundData.emit(this.fund_data_array);
     console.log(this.fund_data_array);
