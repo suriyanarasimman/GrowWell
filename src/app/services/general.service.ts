@@ -100,8 +100,13 @@ export class GeneralService {
   fetchstockdetails(name:String,date:String): Observable<any>{
     return this.http.get<any>(this.baseUrl + "sh/" + name +"/" + date);
   }
+
   fetchStockInformation(): Observable<any[]> {
     return this.http.get<any>(this.stocksJsonUrl);
+  }
+
+  fetchStockHistory(userName: String): Observable<any[]>{
+    return this.http.get<any>(this.baseUrl + "products/history/" + userName);
   }
 
 }

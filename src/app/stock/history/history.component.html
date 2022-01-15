@@ -3,7 +3,7 @@
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active " routerLink="/stock">Holdings</a>
+                    <a class="nav-link" routerLink="/stock">Holdings</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link " routerLink="/buy">Buy</a>
@@ -12,7 +12,7 @@
                     <a class="nav-link " routerLink="/sell">Sell</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " routerLink="/history">History</a>
+                    <a class="nav-link active " routerLink="/history">History</a>
                 </li>
             </ul>
         </div>
@@ -23,6 +23,7 @@
                     <tr>
                         <th scope="col">S.no</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Action</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Purchase price</th>
                         <th scope="col">Total price</th>
@@ -32,6 +33,7 @@
                     <tr *ngFor="let stock of stockList">
                         <td>1</td>
                         <td>{{ stock.productName }}</td>
+                        <td>{{ stock.action }}</td>
                         <td>{{ stock.quantity }}</td>
                         <td>${{ stock.buyPrice }}</td>
                         <td>${{ stock.quantity * stock.buyPrice }}</td>

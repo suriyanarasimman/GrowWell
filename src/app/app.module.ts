@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { StockComponent } from './stock/stock.component';
 import { BuyComponent } from './stock/buy/buy.component';
 import { SellComponent } from './stock/sell/sell.component';
+import { HistoryComponent } from './stock/history/history.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { SellComponent } from './stock/sell/sell.component';
     StockComponent,
     BuyComponent,
     SellComponent,
+    HistoryComponent,
     
 
 

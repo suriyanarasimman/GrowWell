@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BuyComponent } from './stock/buy/buy.component';
+import { HistoryComponent } from './stock/history/history.component';
 import { SellComponent } from './stock/sell/sell.component';
 import { StockComponent } from './stock/stock.component';
 import { StockhistoryComponent } from './stockhistory/stockhistory.component';
@@ -13,10 +14,10 @@ const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path: "stockhistory",component:StockhistoryComponent},
-  {path:"", component:StockComponent},
+  {path:"stock", component:StockComponent},
   {path:"buy",component:BuyComponent},
   {path:"sell", component: SellComponent},
-
+  {path:"history", component: HistoryComponent}
 
 ]
 
