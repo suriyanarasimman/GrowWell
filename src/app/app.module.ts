@@ -29,6 +29,8 @@ import { CartComponent } from './mutual-funds/cart/cart.component';
 
 import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { ModalComponent } from './mutual-funds/modal/modal.component';
+import {CookieService} from 'ngx-cookie-service';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { ModalComponent } from './mutual-funds/modal/modal.component';
     PortfolioComponent,
     CartComponent,
     ModalComponent,
+    NotfoundComponent,
     
 
 
@@ -61,7 +64,7 @@ import { ModalComponent } from './mutual-funds/modal/modal.component';
     PopoverModule,
     NgxSliderModule
   ],
-  providers: [GeneralService],
+  providers: [CookieService,GeneralService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
