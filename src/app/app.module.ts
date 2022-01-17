@@ -21,7 +21,13 @@ import { WealthComponent } from './product-shop/components/wealth/wealth.compone
 import { IncomeComponent } from './product-shop/components/income/income.component';
 import {PopoverModule} from "ngx-smart-popover";
 
+import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
+import { FiltersComponent } from './mutual-funds/filters/filters.component';
+import { PortfolioComponent } from './mutual-funds/portfolio/portfolio.component';
+import { CartComponent } from './mutual-funds/cart/cart.component';
 
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
+import { ModalComponent } from './mutual-funds/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +41,11 @@ import {PopoverModule} from "ngx-smart-popover";
     WealthComponent,
     IncomeComponent,
     
+    MutualFundsComponent,
+    FiltersComponent,
+    PortfolioComponent,
+    CartComponent,
+    ModalComponent,
     
 
 
@@ -45,7 +56,8 @@ import {PopoverModule} from "ngx-smart-popover";
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    PopoverModule
+    PopoverModule,
+    NgxSliderModule
   ],
   providers: [GeneralService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

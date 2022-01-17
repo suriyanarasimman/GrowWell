@@ -1,0 +1,46 @@
+{
+    "mf_data": [
+        {
+            "code": 120594,
+            "type":"equity",
+            "amc":"icici",
+            "cagr": 42.62,
+            "min_investment": "100"
+        },
+        {
+            "code": 112096,
+            "type":"debt",
+            "amc":"icici",
+            "cagr": 10.18,
+            "min_investment": "100"
+        },
+        {
+            "code": 145206,
+            "type":"equity",
+            "amc":"tata",
+            "cagr": 32.08,
+            "min_investment": "500"
+        },
+        {
+            "code": 144546,
+            "type":"flexi",
+            "amc":"tata",
+            "cagr": 20.19,
+            "min_investment": "500"
+        },
+        {
+            "code": 143269,
+            "type":"debt",
+            "amc":"ppfas",
+            "cagr": 4.26,
+            "min_investment": "1000"
+        },
+        {
+            "code": 122639,
+            "type":"flexi",
+            "amc":"ppfas",
+            "cagr": 31.06,
+            "min_investment": "1000"
+        }
+    ]
+}

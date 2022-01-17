@@ -8,6 +8,8 @@ import { StockhistoryComponent } from './stockhistory/stockhistory.component';
 import { ProductShopComponent } from './product-shop/product-shop.component';
 import { WealthComponent } from './product-shop/components/wealth/wealth.component';
 import { IncomeComponent } from './product-shop/components/income/income.component';
+import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
+
 
 
 const routes: Routes = [
@@ -17,9 +19,8 @@ const routes: Routes = [
   {path: "stockhistory",component:StockhistoryComponent},
   {path:"shop",component:ProductShopComponent},
   {path:"wealth",component:WealthComponent},
-  {path:"income",component:IncomeComponent}
-
-
+  {path:"income",component:IncomeComponent},
+  {path: "mutualfunds",component:MutualFundsComponent}
 
 ]
 
