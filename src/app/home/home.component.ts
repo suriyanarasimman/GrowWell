@@ -7,6 +7,7 @@ import { FormBuilder,
   FormArray } from '@angular/forms';
   import { GeneralService } from './../services/general.service';
 import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
+declare var $:any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.contactFormInit();
+    
   }
   contactFormInit(){
     this.contactForm=this.formBuilder.group({
