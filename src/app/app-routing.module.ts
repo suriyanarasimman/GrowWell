@@ -10,24 +10,30 @@ import { WealthComponent } from './product-shop/components/wealth/wealth.compone
 import { IncomeComponent } from './product-shop/components/income/income.component';
 import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
 
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
+  {path:'',component:HomeComponent},
   {path:"login", component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path: "stockhistory",component:StockhistoryComponent},
   {path:"shop",component:ProductShopComponent},
   {path:"wealth",component:WealthComponent},
   {path:"income",component:IncomeComponent},
-  {path: "mutualfunds",component:MutualFundsComponent}
+  {path: "mutualfunds",component:MutualFundsComponent},
+  {path:"home",component:HomeComponent}
+
+
 
 ]
 
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    scrollPositionRestoration: 'top'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

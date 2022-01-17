@@ -20,6 +20,7 @@ import { ProductShopComponent } from './product-shop/product-shop.component';
 import { WealthComponent } from './product-shop/components/wealth/wealth.component';
 import { IncomeComponent } from './product-shop/components/income/income.component';
 import {PopoverModule} from "ngx-smart-popover";
+import { HomeComponent } from './home/home.component';
 
 import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
 import { FiltersComponent } from './mutual-funds/filters/filters.component';
@@ -40,6 +41,7 @@ import { ModalComponent } from './mutual-funds/modal/modal.component';
     ProductShopComponent,
     WealthComponent,
     IncomeComponent,
+    HomeComponent,
     
     MutualFundsComponent,
     FiltersComponent,
