@@ -6,33 +6,35 @@
         <div class="modal-body">
             <div class="container">
                 <div class="row">
-                    Current value(NAV): {{fund_nav | number:"1.0-3"}}
-                </div>
-                <div class="row">
-                    3 year CAGR: {{fund_cagr}} %
-                </div>
-                <div class="row">
-                    Min. Investment: {{fund_min_investment}}
+                    <div class="col">
+                        <div class="row">
+                            Current value(NAV): {{fund_nav | number:"1.0-3"}}
+                        </div>
+                        <div class="row">
+                            3 year CAGR: {{fund_cagr}} %
+                        </div>
+                        <div class="row">
+                            Min. Investment: {{fund_min_investment}}
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="row">
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-danger" (click)="decrement()">-</button>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" name="quantity" disabled class="form-control input-number"
+                                    value="{{quantity}}" size="1" formControlName="qty">
+                            </div>
+
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-success" (click)="increment()">+</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <br>
-
-            <div class="row">
-
-                <div class="col-auto">
-                    <button type="button" class="btn btn-danger" (click)="decrement()">-</button>
-                </div>
-                <div class="col-auto">
-                    <input type="text" name="quantity" disabled class="form-control input-number" value="{{quantity}}" size="1"
-                        formControlName="qty">
-                </div>
-
-                <div class="col-auto">
-                    <button type="button" class="btn btn-success" (click)="increment()">+</button>
-                </div>
-
-            </div>
-
             <br>
             <b style="color:red;" *ngIf="validateQty()"> Quantity can't be less than 1 </b>
             <b *ngIf="!validateQty()">Total payable amount:{{net_amt | number:"1.0-3"}}</b>
@@ -41,7 +43,8 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="onClose()">Close</button>
             <div class="disabled">
-                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="validateQty()">Buy</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                    [disabled]="validateQty()">Buy</button>
             </div>
         </div>
     </div>

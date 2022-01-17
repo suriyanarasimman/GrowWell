@@ -24,14 +24,15 @@ export class ModalComponent implements OnInit {
 
 
   constructor(private gs:GeneralService) { 
-    this.userName=localStorage.getItem("userName");
+    // this.userName=localStorage.getItem("userName");
+    this.userName="mr.bean";
   }
 
   ngOnInit(): void {
     // this.net_amt=+this.fund_min_investment + (+(this.quantity*this.fund_nav));
     this.quantity=1;
     this.form = new FormGroup({
-      qty: new FormControl(1,Validators.compose([Validators.required,Validators.min(0)]))
+      qty: new FormControl(1,Validators.compose([Validators.required,Validators.min(1)]))
     });
 
   }
