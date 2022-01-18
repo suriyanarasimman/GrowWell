@@ -74,7 +74,7 @@
                                 <div class="model-company-price">${{stockdetails.price}}</div>
                                 <div class="model-company-toggle">
                                     <label class="switch">
-                                        <input type="checkbox" [(ngModel)]="displayBuy" checked>
+                                        <input type="checkbox" [(ngModel)]="displayBuy" (click)="checkSell()" checked>
                                         <span class="slider round" ></span>
                                     </label>
                                     <br> <label *ngIf="displayBuy" style="font-weight: normal; font-size:16px;">Buy</label>
@@ -134,8 +134,8 @@
                         </div>
                         <div class="modal-footer modal-footer-center">
                             <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="displayBuy" (click)="displayon()">BUY</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="!displayBuy">SELL</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="displayBuy" (click)="onBuyFormSubmit()">BUY</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="!displayBuy" (click)="onSellFormSubmit()">SELL</button>
                         </div>
                     </div>
                 </div>
