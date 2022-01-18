@@ -20,6 +20,7 @@ import { StockComponent } from './stock/stock.component';
 import { BuyComponent } from './stock/buy/buy.component';
 import { SellComponent } from './stock/sell/sell.component';
 import { HistoryComponent } from './stock/history/history.component';
+import { MarketComponent } from './stock/market/market.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { HistoryComponent } from './stock/history/history.component';
     BuyComponent,
     SellComponent,
     HistoryComponent,
+    MarketComponent,
     
 
 

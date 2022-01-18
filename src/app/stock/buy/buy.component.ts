@@ -1,10 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { GeneralService } from 'src/app/services/general.service';
 import { IStocks } from 'src/app/services/IStocks';
-import { Nametosymbol } from 'src/assets/nametosymbol';
-import { StockDetails } from 'src/assets/stockdetails';
 
 @Component({
   selector: 'app-buy',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Nametosymbol } from 'src/assets/nametosymbol';
+import { Nametosymbol } from 'src/assets/stockhistory/nametosymbol';
 import { GeneralService } from '../services/general.service';
 import { FormControl } from '@angular/forms';
-import { StockDetails } from 'src/assets/stockdetails';
+import { StockDetails } from 'src/assets/stockhistory/stockdetails';
 import { Subscription } from 'rxjs';
 
 
