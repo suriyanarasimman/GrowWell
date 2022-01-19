@@ -31,6 +31,8 @@ import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { ModalComponent } from './mutual-funds/modal/modal.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './login/change-password/change-password.component';
+import {CookieService} from 'ngx-cookie-service';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { ChangePasswordComponent } from './login/change-password/change-password
     ModalComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
+    NotfoundComponent,
     
 
 
@@ -65,7 +68,7 @@ import { ChangePasswordComponent } from './login/change-password/change-password
     PopoverModule,
     NgxSliderModule
   ],
-  providers: [GeneralService],
+  providers: [CookieService,GeneralService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

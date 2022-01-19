@@ -6,6 +6,8 @@ import { FormBuilder,
   Validators,
   FormArray } from '@angular/forms';
   import { GeneralService } from './../services/general.service';
+  import {CookieService} from 'ngx-cookie-service';
+  import { Router } from '@angular/router';
 import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 declare var $:any;
 @Component({
@@ -22,7 +24,14 @@ export class HomeComponent implements OnInit {
   phone=new FormControl('',[Validators.required]);
   email=new FormControl('',[Validators.required]);
   message=new FormControl('',[Validators.required]);
-  constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder) { }
+  constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder,private cookieService:CookieService,private router:Router) {
+
+    if(this.cookieService.check('userName')==true) {
+      // console.log('exists')
+      this.router.navigate(['/shop']);
+    }
+
+   }
 
   ngOnInit(): void {
 

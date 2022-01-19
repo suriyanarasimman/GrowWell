@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild, ElementRef } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { GeneralService } from './../../../services/general.service';
+import {CookieService} from "ngx-cookie-service"
 declare var $:any;
 
 
@@ -20,9 +21,9 @@ export class WealthComponent implements OnInit {
   // @ViewChild('successModal') successModal: ElementRef;
   
 
-  constructor(private Routeservice:GeneralService) {
+  constructor(private Routeservice:GeneralService,private cookieService:CookieService) {
 
-    this.userName=localStorage.getItem("userName");
+    this.userName=this.cookieService.get("userName");
 
 
    }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { GeneralService } from './../../../services/general.service';
+import {CookieService} from "ngx-cookie-service"
 declare var $:any;
 
 @Component({
@@ -16,10 +17,10 @@ export class IncomeComponent implements OnInit {
   userName:String;
   selectedProductData:any={}
 
-  constructor(private Routeservice:GeneralService) { 
+  constructor(private Routeservice:GeneralService,private cookieService:CookieService) { 
 
 
-    this.userName=localStorage.getItem("userName");
+    this.userName=this.cookieService.get("userName");
 
   }
 
