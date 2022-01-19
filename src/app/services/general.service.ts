@@ -10,11 +10,21 @@ export class GeneralService {
 
   baseUrl: String = environment.baseUrl;
   addressUrl:String="https://www.universal-tutorial.com/api/"
+  mf_api_url="https://api.mfapi.in/mf/";
 
   constructor(private http: HttpClient) { }
 
+  getFunds(code:Number):Observable<any> {
+    return this.http.get<any>(this.mf_api_url+code);
+  }
+
   registerUser(userDetail: any): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'register', userDetail);
+  }
+
+
+  getToken(header:any): Observable<any> {
+    return this.http.get<any>(this.addressUrl + 'getaccesstoken',header);
   }
 
   getCountries(header:any): Observable<any> {

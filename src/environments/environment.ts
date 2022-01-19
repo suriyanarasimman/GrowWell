@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   environmentName: "Dev",
-  baseUrl: "https://growwell.herokuapp.com/api/v1/",
+  baseUrl: "http://backend.grow-well.live/api/v1/",
 };
 
 /*
