@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
@@ -23,8 +24,10 @@ export class ModalComponent implements OnInit {
   fund_id:number;
 
 
-  constructor(private gs:GeneralService) { 
-    this.userName=localStorage.getItem("userName");
+  constructor(private gs:GeneralService, private cookieService:CookieService) { 
+    // this.userName=localStorage.getItem("userName");
+    this.userName=this.cookieService.get("userName");
+
     // this.userName="mr.bean";
   }
 

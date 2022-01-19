@@ -11,6 +11,8 @@ import { IncomeComponent } from './product-shop/components/income/income.compone
 import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './login/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path:"income",component:IncomeComponent},
   {path: "mutualfunds",component:MutualFundsComponent},
   {path:"home",component:HomeComponent},
+  {path:"forgot-password",component:ForgotPasswordComponent},
+  {path:"change-password",component:ChangePasswordComponent},
   {path:'**',component:NotfoundComponent}
 
 

@@ -14,6 +14,14 @@ export class GeneralService {
 
   constructor(private http: HttpClient) { }
 
+  forgotPassword(mail:any):Observable<any>{
+    return this.http.post<any>(this.baseUrl + "sh", mail);
+  }
+
+  changePassword(requiredDetals:Object):Observable<any>{
+    return this.http.post<any>(this.baseUrl + "sh", requiredDetals);
+  }
+
   getFunds(code:Number):Observable<any> {
     return this.http.get<any>(this.mf_api_url+code);
   }
