@@ -1,12 +1,34 @@
-<nav class="navbar navbar-light navbar-expand-lg navigation-clean sticky-top" style="background-color: #e3f2fd;">
-    <div class="container"><a class="navbar-brand" href="#">GrowWell</a><button data-bs-toggle="collapse"
-            class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle
-                navigation</span><span class="navbar-toggler-icon"></span></button>
+<nav class="navbar nav-pills navbar-light navbar-expand-lg sticky-top"
+    style="background-color: #e3f2fd;">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/home" routerLinkActive="router-link-active">
+            <!-- <img class="logo" src="/assets/images/logo.png"> --> GrowWell
+        </a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
+            <span class="visually-hidden">Toggle
+                navigation</span>
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navcol-1">
+
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link " href="#">First Item</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Second Item</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Third Item</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/stocks" routerLinkActive="active">Stocks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/mutualfunds" routerLinkActive="active">Mutual Funds</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/shop" routerLinkActive="active">PMS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="contact" routerLinkActive="active">Contact</a>
+                </li>
+
+
                 <li class="nav-item dropdown">
 
 

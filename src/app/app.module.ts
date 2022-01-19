@@ -29,6 +29,8 @@ import { CartComponent } from './mutual-funds/cart/cart.component';
 
 import { NgxSliderModule } from "@angular-slider/ngx-slider";
 import { ModalComponent } from './mutual-funds/modal/modal.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './login/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { ModalComponent } from './mutual-funds/modal/modal.component';
     PortfolioComponent,
     CartComponent,
     ModalComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
     
 
 
