@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container-flex container1">
     <div class="card text-center ">
         <div class="card-header">
@@ -20,17 +21,17 @@
             </ul>
         </div>
         <div class="card-body">
-            <div class="row d-flex" style="padding-left: 20px;">
+            <div class="row d-flex">
                 <div class="col" style="max-width: 440px;">
                     <div>
                         <h5>Detalis:</h5>
-                        <div class="row" style=" border-style: groove;">
-                            <div class="c col"><label>name: </label> <label>{{stockdetails.name}}</label><br></div>
-                            <div class="c col"><label>open: </label> <br><label>{{stockdetails.open}}</label><br></div>
-                            <div class="c col"><label>high: </label> <br><label>{{stockdetails.high}}</label><br></div>
-                            <div class="c col"><label>low: </label> <br><label>{{stockdetails.low}}</label><br></div>
-                            <div class="c col"><label>close: </label> <br><label>{{stockdetails.close}}</label><br></div>
-                            <div class="c col"><label>volume: </label> <br><label>{{stockdetails.volume}}</label><br></div>
+                        <div class="row" style=" border-style: groove; background: #e6f9ff; ">
+                            <div class="c col"><label class="badge bg-info text-dark">name: </label> <label>{{stockdetails.name}}</label><br></div>
+                            <div class="c col"><label class="badge bg-secondary">open: </label> <br><label style="color:gray">{{stockdetails.open}}</label><br></div>
+                            <div class="c col"><label class="badge bg-success">high: </label> <br><label style="color:green">{{stockdetails.high}}</label><br></div>
+                            <div class="c col"><label class="badge bg-danger">low: </label> <br><label style="color: crimson;">{{stockdetails.low}}</label><br></div>
+                            <div class="c col"><label class="badge bg-warning text-dark">close: </label> <br><label>{{stockdetails.close}}</label><br></div>
+                            <div class="c col"><label class="badge bg-dark">volume: </label> <br><label>{{stockdetails.volume}}</label><br></div>
                             <div class="c col"><label>ex_dividend: </label> <br><label>{{stockdetails.ex_dividend}}</label><br></div>
                             <div class="c col"><label>split_ratio: </label> <br><label>{{stockdetails.split_ratio}}</label><br></div>
                             <div class="c col"><label>adj_open: </label> <br><label>{{stockdetails.adj_open}}</label><br></div>
@@ -145,3 +146,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

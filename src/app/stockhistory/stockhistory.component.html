@@ -1,13 +1,14 @@
-<div class="container-fluid  justify-content-center backgroun">
+<app-header></app-header>
+<div class="container-fluid  justify-content-center backgroun" style="padding-bottom: 300px;">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">StockHistory</h5>
             <p class="card-text">Enter the sock Name and the date to get the details!!!.</p>
             <div class="container">
                 <div class="row">
-                    <div class="dropdown col-md-5 ">
+                    <div class="dropdown col-md-5 " style="margin-right: 25px;">
+                        <label style="display: block;">Stock Name:</label>
                         <div id="myDropdown" class="dropdown-content">
-
                             <input list="stoc" type="text" [(ngModel)]="searchInput" placeholder="Search.." id="myInput" (keyup)="fetchSeries()" />
                             <datalist id="stoc" [ngStyle]="{'display': clicked == '1' ? 'none' : 'show'}">
                             <option 
@@ -15,8 +16,16 @@
                             </datalist >
                         </div>
                     </div>
-                    <input class="com col-md-5" [(ngModel)]="dateInput" type="date" />
-                    <button class=" col butto " (click)="datecalled()">submit</button>
+                    <div class="col-md-5" style="padding: 0%;">                    
+                        <label style="display: inline; max-width:fit-content;float:center;">Date:</label>
+                        <input class="com" [(ngModel)]="dateInput" type="date" min="2014-12-02" max="2018-02-02"/>
+                        <label>From:2014 till 2018</label>
+                    </div>
+                    <div class="col">
+                        <br>
+                        <button class="butto " (click)="datecalled()">submit</button>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -43,3 +52,4 @@
         </div>
     </div>
 </div>
+<app-footer></app-footer>

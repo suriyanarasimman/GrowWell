@@ -5,10 +5,25 @@
     align-items: center;
 }
 
-@media (max-width:630px) {
+@media (max-width:661px) {
     .d-flex {
         flex-direction: column-reverse;
+        font-size: 0.6rem;
     }
+    .market-type {
+        flex-direction: column;
+    }
+    .market-type * {
+        padding-right: 0px !important;
+    }
+}
+
+#popup .modal-dialog {
+    -webkit-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    top: 50%;
+    margin: 0 auto;
 }
 
 .c {
