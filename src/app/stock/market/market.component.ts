@@ -37,6 +37,7 @@ export class MarketComponent implements OnInit {
   searchResult;
   limitprice=1;
   QuantityLimit;
+  status;
   sellProductAvailable=false;
   marketType: String= "Market";
   price:number =10;
@@ -159,6 +160,7 @@ export class MarketComponent implements OnInit {
   };
   this.productService.buyProduct(buyOrderRequest).subscribe(
     (res) => {
+      this.status = "Product added to Portfolio"
     }
   );
  }
@@ -180,8 +182,10 @@ export class MarketComponent implements OnInit {
     (res) => {
       if (res.status === 'UPDATED') {
         console.log("UPDATED")
+        this.status = "successfully sold the product "
       } else {
         console.log("Not Updated")
+        this.status = "Product not sold due to less holdings "
       }
     },
   );

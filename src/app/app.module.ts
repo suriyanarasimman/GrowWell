@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA,NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +21,23 @@ import { BuyComponent } from './stock/buy/buy.component';
 import { SellComponent } from './stock/sell/sell.component';
 import { HistoryComponent } from './stock/history/history.component';
 import { MarketComponent } from './stock/market/market.component';
+import { ProductShopComponent } from './product-shop/product-shop.component';
+import { WealthComponent } from './product-shop/components/wealth/wealth.component';
+import { IncomeComponent } from './product-shop/components/income/income.component';
+import {PopoverModule} from "ngx-smart-popover";
+import { HomeComponent } from './home/home.component';
 
+import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
+import { FiltersComponent } from './mutual-funds/filters/filters.component';
+import { PortfolioComponent } from './mutual-funds/portfolio/portfolio.component';
+import { CartComponent } from './mutual-funds/cart/cart.component';
+
+import { NgxSliderModule } from "@angular-slider/ngx-slider";
+import { ModalComponent } from './mutual-funds/modal/modal.component';
+import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './login/change-password/change-password.component';
+import {CookieService} from 'ngx-cookie-service';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +52,19 @@ import { MarketComponent } from './stock/market/market.component';
     SellComponent,
     HistoryComponent,
     MarketComponent,
+    ProductShopComponent,
+    WealthComponent,
+    IncomeComponent,
+    HomeComponent,
+    
+    MutualFundsComponent,
+    FiltersComponent,
+    PortfolioComponent,
+    CartComponent,
+    ModalComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
+    NotfoundComponent,
     
 
 
@@ -45,9 +74,12 @@ import { MarketComponent } from './stock/market/market.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    PopoverModule,
+    NgxSliderModule
   ],
-  providers: [GeneralService],
+  providers: [CookieService,GeneralService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

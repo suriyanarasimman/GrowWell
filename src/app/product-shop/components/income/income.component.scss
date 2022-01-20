@@ -1,0 +1,177 @@
+body {
+    background-color: #dce3f0
+}
+
+.height {
+    height: 100vh
+}
+
+#heading{
+	color: #000;
+	font-size: 50px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 60px;
+}
+#heading::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	border-radius: 1px;
+	background: purple;
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
+
+.card {
+    width: 440px;
+    height: 440px
+}
+
+.image {
+    position: absolute;
+    right: 12px;
+    top: 10px
+}
+
+.main-heading {
+    font-size: 40px;
+    color: coral !important
+}
+
+
+
+
+.btn-danger {
+    height: 48px;
+    font-size: 18px
+}
+
+
+
+
+.modal-confirm , .modal-buy , .modal-error{		
+	color: #636363;
+	width: 325px;
+	font-size: 14px;
+}
+.modal-confirm .modal-content,.modal-buy .modal-content , .modal-error .modal-content{
+	padding: 20px;
+	border-radius: 5px;
+	border: none;
+}
+.modal-confirm .modal-header,.modal-buy .modal-header , .modal-error .modal-header{
+	border-bottom: none;   
+	position: relative;
+}
+.modal-confirm h4,.modal-buy h4 , .modal-error h4{
+	text-align: center;
+	font-size: 26px;
+	margin: 30px 0 -15px;
+}
+.modal-confirm .form-control, .modal-confirm .btn,.modal-buy .form-control, .modal-buy .btn, .modal-error .form-control, .modal-error .btn {
+	min-height: 45px;
+	border-radius: 3px; 
+}
+.modal-confirm .close,.modal-buy .close , .modal-error .close {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+}	
+.modal-confirm .modal-footer,.modal-buy .modal-footer , .modal-error .modal-footer {
+	border: none;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 13px;
+}	
+.modal-confirm .icon-box,.modal-error .icon-box {
+	color: #fff;		
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: -70px;
+	width: 95px;
+	height: 95px;
+	border-radius: 50%;
+	z-index: 9;
+	background: #ff3333;
+	padding: 15px;
+	text-align: center;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-buy .icon-box {
+	color: #fff;		
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	top: -70px;
+	width: 95px;
+	height: 95px;
+	border-radius: 50%;
+	z-index: 9;
+	background: #3399ff;
+	padding: 15px;
+	text-align: center;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-confirm .icon-box i ,.modal-buy .icon-box i , .modal-error .icon-box i{
+	font-size: 58px;
+	position: relative;
+	top: 3px;
+}
+.modal-confirm.modal-dialog,.modal-buy.modal-dialog , .modal-error.modal-dialog {
+	margin-top: 80px;
+}
+
+
+// #cancelButton .btn {
+// 	color: #fff;
+// 	border-radius: 4px;
+// 	background: #d43f3a;
+// 	text-decoration: none;
+// 	transition: all 0.4s;
+// 	line-height: normal;
+// 	border: none;
+// }
+// #cancelButton .btn:hover, .modal-confirm .btn:focus {
+// 	background: #d43f3a;
+// 	outline: none;
+// }
+
+// #buyButton .btn {
+// 	color: #fff;
+// 	border-radius: 4px;
+// 	background: #204d74;
+// 	text-decoration: none;
+// 	transition: all 0.4s;
+// 	line-height: normal;
+// 	border: none;
+// }
+// .buyButton .btn:hover, .modal-confirm .btn:focus {
+// 	background: #204d74;
+// 	outline: none;
+// }
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}
+
+#buyButton {
+    display:inline-block; //Typically a button wouldn't need its own line        
+    margin:0 auto;
+    width: 100px; //or whatever
+}
+#cancelButton {
+    display:inline-block; //Typically a button wouldn't need its own line        
+    margin:0 auto;
+    width: 105px; //or whatever
+}

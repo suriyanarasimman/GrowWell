@@ -1,56 +1,84 @@
-.form-group {
-    padding: 10px;
-}
+.login {
+    min-height: 100vh;
+  }
+  
+  .bg-image {
+    /* background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200'); */
+    background-image: url("/assets/images/login/sidepic.png");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* .login-heading {
+    /* font-weight: 300; */
+  /* font-weight: bold; */
+  /* } */
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+  #floatingInput,
+  #floatingPassword {
+    width: 420px;
+  }
 
-.form-control {
-    width: 300px;
-}
+  .logo{
+      width: 25%;
+      height: 25%;
+  }
 
-.form {
-    display: flex;
-    justify-content: center;
-}
+  @media only screen and (max-width: 600px) {
+    .logo{
+        width: 40%;
+        height: 40%;
+    }
+  }
 
-.container {
-    margin-top: 10%;
-}
+// .form-group {
+//     padding: 10px;
+// }
 
-.invalidCredentials {
-    background-color: red;
-    text-align: center;
-    color: white;
-}
+// .form-control {
+//     width: 300px;
+// }
 
-.spacer {
-    display: flex;
-    gap: 50px;
-}
+// .form {
+//     display: flex;
+//     justify-content: center;
+// }
 
-.form-check{
-    margin-left: -30px !important;
-}
+// .invalidCredentials {
+//     background-color: red;
+//     text-align: center;
+//     color: white;
+// }
 
-.spacer-2 {
-    display: flex;
-    gap: 40%;
-}
+// .spacer {
+//     display: flex;
+//     gap: 50px;
+// }
 
-.disabled {
-    cursor: not-allowed;
-}
+// .form-check{
+//     margin-left: -30px !important;
+// }
 
-.card-img-overlay{
-    height: 100% !important;
-}
+// .spacer-2 {
+//     display: flex;
+//     gap: 40%;
+// }
 
-.backgroun {
-    position: absolute;
-    padding-top: 10%;
-    width: 100%;
-    height: 100%;
-}
+// .disabled {
+//     cursor: not-allowed;
+// }
 
-.card {
-    opacity: 0.8;
-    color: #000000;
-}
+// .card-img-overlay{
+//     height: 100% !important;
+// }
+
+// .card {
+//     opacity: 0.8;
+//     color: #000000;
+// }
+
