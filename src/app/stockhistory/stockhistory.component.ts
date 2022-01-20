@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Nametosymbol } from 'src/assets/nametosymbol';
+import { Nametosymbol } from 'src/assets/stockhistory/nametosymbol';
 import { GeneralService } from '../services/general.service';
 import { FormControl } from '@angular/forms';
-import { StockDetails } from 'src/assets/stockdetails';
+import { StockDetails } from 'src/assets/stockhistory/stockdetails';
 import { Subscription } from 'rxjs';
 
 
@@ -31,6 +31,7 @@ export class StockhistoryComponent implements OnInit {
   datecalled(){
     console.log(this.dateInput)
     this.subscription.unsubscribe();
+    console.log(this.searchInput)
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].fullnames == this.searchInput){
         this.selected = this.searchResult[i].symbo;

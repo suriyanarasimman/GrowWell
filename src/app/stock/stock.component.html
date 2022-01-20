@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="container-flex container1">
+    <div class="card text-center ">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active " routerLink="/stock">Holdings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/market">Market</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/buy">Buy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/sell">Sell</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/history">History</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Current Holdings</h5>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr>
+                        <th scope="col">S.no</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Purchase price</th>
+                        <th scope="col">Total price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stock of stockList">
+                        <td>1</td>
+                        <td>{{ stock.productName }}</td>
+                        <td>{{ stock.quantity }}</td>
+                        <td>${{ stock.buyPrice }}</td>
+                        <td>${{ stock.quantity * stock.buyPrice }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

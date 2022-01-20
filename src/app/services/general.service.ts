@@ -9,6 +9,21 @@ import { environment } from 'src/environments/environment';
 export class GeneralService {
 
   baseUrl: String = environment.baseUrl;
+  private stocksJsonUrl: any = [
+    { "ticker": "ADN", "name": "ADN Industries", "price": 740 },
+    { "ticker": "CIP", "name": "Cipla", "price": 955 },
+    { "ticker": "HCT", "name": "HCLTECH", "price": 945 },
+    { "ticker": "ICT", "name": "I&C Technologies", "price": 215 },
+    { "ticker": "LCP", "name": "Lex Corp", "price": 450 },
+    { "ticker": "MSF", "name": "Microsoft", "price": 278 },
+    { "ticker": "NST", "name": "NESTLEIND", "price": 500 },
+    { "ticker": "QPY", "name": "Q-Pay", "price": 768 },
+    { "ticker": "SIS", "name": "Stark Industries", "price": 370 },
+    { "ticker": "SVN", "name": "SVRN", "price": 430 },
+    { "ticker": "TMS", "name": "TRQ Motors", "price": 320 },
+    { "ticker": "TKS", "name": "TK Steel", "price": 990 },
+    { "ticker": "WIS", "name": "Wayne Industries", "price": 800 }
+  ];
   addressUrl:String="https://www.universal-tutorial.com/api/"
   mf_api_url="https://api.mfapi.in/mf/";
 
@@ -102,6 +117,14 @@ export class GeneralService {
 
   fetchstockdetails(name:String,date:String): Observable<any>{
     return this.http.get<any>(this.baseUrl + "sh/" + name +"/" + date);
+  }
+
+  fetchStockInformation(): Observable<any[]> {
+    return this.http.get<any>(this.stocksJsonUrl);
+  }
+
+  fetchStockHistory(userName: String): Observable<any[]>{
+    return this.http.get<any>(this.baseUrl + "products/history/" + userName);
   }
 
 }

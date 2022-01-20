@@ -1,0 +1,149 @@
+<app-header></app-header>
+<div class="container-flex container1">
+    <div class="card text-center ">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/stock">Holdings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active " routerLink="/market">Market</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/buy">Buy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/sell">Sell</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/history">History</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="row d-flex">
+                <div class="col" style="max-width: 440px;">
+                    <div>
+                        <h5>Detalis:</h5>
+                        <div class="row" style=" border-style: groove; background: #e6f9ff; ">
+                            <div class="c col"><label class="badge bg-info text-dark">name: </label> <label>{{stockdetails.name}}</label><br></div>
+                            <div class="c col"><label class="badge bg-secondary">open: </label> <br><label style="color:gray">{{stockdetails.open}}</label><br></div>
+                            <div class="c col"><label class="badge bg-success">high: </label> <br><label style="color:green">{{stockdetails.high}}</label><br></div>
+                            <div class="c col"><label class="badge bg-danger">low: </label> <br><label style="color: crimson;">{{stockdetails.low}}</label><br></div>
+                            <div class="c col"><label class="badge bg-warning text-dark">close: </label> <br><label>{{stockdetails.close}}</label><br></div>
+                            <div class="c col"><label class="badge bg-dark">volume: </label> <br><label>{{stockdetails.volume}}</label><br></div>
+                            <div class="c col"><label>ex_dividend: </label> <br><label>{{stockdetails.ex_dividend}}</label><br></div>
+                            <div class="c col"><label>split_ratio: </label> <br><label>{{stockdetails.split_ratio}}</label><br></div>
+                            <div class="c col"><label>adj_open: </label> <br><label>{{stockdetails.adj_open}}</label><br></div>
+                            <div class="c col"><label>adj_high: </label> <br><label>{{stockdetails.adj_high}}</label><br></div>
+                            <div class="c col"><label>adj_low: </label> <br><label>{{stockdetails.adj_low}}</label><br></div>
+                            <div class="c col"><label>adj_close: </label> <br><label>{{stockdetails.adj_close}}</label><br></div>
+                            <div class="c col"><label>adj_volume: </label> <br><label>{{stockdetails.adj_volume}}</label><br></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5 class="card-title">WatchList</h5>
+                    <table class="table table-bordered ">
+                        <thead>
+                            <tr>
+                                <th scope="col">S.no</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Symbol</th>
+                                <th scope="col">Purchase price</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="scroll">
+                            <tr *ngFor="let stock of stockList; let i=index;" (mouseover)="currentStock(stock.name)">
+                                <td>{{i + 1}}</td>
+                                <td>{{ stock.name }}</td>
+                                <td>{{ stock.ticker }}</td>
+                                <td>${{ stock.price }}</td>
+                                <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popup" (click)="buySell(stock.ticker , stock.price)">Buy/Sell</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="popup" role="dialog" aria-labelledby="exampleModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="model-head-allign">
+                                <div class="model-company-name">{{stockdetails.name}}</div>
+                                <div class="model-company-price">${{stockdetails.price}}</div>
+                                <div class="model-company-toggle">
+                                    <label class="switch">
+                                        <input type="checkbox" [(ngModel)]="displayBuy" (click)="checkSell()" checked>
+                                        <span class="slider round" ></span>
+                                    </label>
+                                    <br> <label *ngIf="displayBuy" style="font-weight: normal; font-size:16px;">Buy</label>
+                                    <label *ngIf="!displayBuy" style="font-weight: normal; font-size:16px;">Sell</label>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex market-type">
+                                <div style="padding-right: 35px;">
+                                    <input type="radio" id="age1" value="Market" [(ngModel)]="marketType" checked>
+                                    <label for="age1">market</label><br>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="age2" value="Limit" [(ngModel)]="marketType">
+                                    <label for="age1">Limit</label><br>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="d-flex user-data">
+                                <!-- <div style="float:left;margin-right:20px;">
+                                    <label for="qty">Qty</label> <br>
+                                    <input class="model-body-form" min=1 id="qty" type="number" formControlName="Quantity" [(ngModel)]="qty">
+                                </div> -->
+                                <div style="float:left;">
+                                    <div class="row"><label class="col" for="quantity" style="float:center;">Qty</label></div>
+                                    <div class="number-input">
+                                        <button (click)="subQuantity()"></button>
+                                        <input class="quantity" id="quantity" name="quantity" value="1" type="number" [(ngModel)]="qty" min="1">
+                                        <button class="plus" (click)="addQuantity()"></button>
+                                    </div>
+                                </div>
+                                <div style="float:left;">
+                                    <div class="row"><label class="col" for="price" style="float:center;">Price</label></div>
+                                    <div class="number-input">
+                                        <button (click)="subPrice()"></button>
+                                        <input class="model-body-form" id="price" min="1" type="number" [value]="stockdetails.price" [(ngModel)]="limitprice" [disabled]="this.marketType == 'Market'" [readonly]="this.marketType == 'Market'">
+                                        <button class="plus" (click)="addPrice()"></button>
+                                    </div>
+                                </div>
+                                <div style="float:left;margin-right:20px;">
+                                    <label for="product">Product</label><br>
+                                    <input class="model-body-form" id="product" type="text" value="Stock" disabled>
+                                </div>
+                                <div class="line-break"></div>
+                                <div class="align-self-center" style="margin-right:20px;">
+                                    <br><label for="cost">Cost</label><br>
+                                    <input *ngIf="this.marketType == 'Market' " class="model-body-form" id="cost" type="text" [value]="this.qty * stockdetails.price" disabled>
+                                    <input *ngIf="this.marketType == 'Limit' " class="model-body-form" id="cost" type="text" [value]="this.qty * this.limitprice" disabled>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer modal-footer-center">
+                            <button class="btn btn-danger" type="button" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="displayBuy" (click)="onBuyFormSubmit()">BUY</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" *ngIf="!displayBuy" (click)="onSellFormSubmit()">SELL</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

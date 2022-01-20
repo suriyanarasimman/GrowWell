@@ -16,6 +16,11 @@ import { RegisterComponent } from './register/register.component';
 
 import { StockhistoryComponent } from './stockhistory/stockhistory.component';
 import { FormsModule } from '@angular/forms';
+import { StockComponent } from './stock/stock.component';
+import { BuyComponent } from './stock/buy/buy.component';
+import { SellComponent } from './stock/sell/sell.component';
+import { HistoryComponent } from './stock/history/history.component';
+import { MarketComponent } from './stock/market/market.component';
 import { ProductShopComponent } from './product-shop/product-shop.component';
 import { WealthComponent } from './product-shop/components/wealth/wealth.component';
 import { IncomeComponent } from './product-shop/components/income/income.component';
@@ -42,6 +47,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
     LoginComponent,
     RegisterComponent,
     StockhistoryComponent,
+    StockComponent,
+    BuyComponent,
+    SellComponent,
+    HistoryComponent,
+    MarketComponent,
     ProductShopComponent,
     WealthComponent,
     IncomeComponent,
