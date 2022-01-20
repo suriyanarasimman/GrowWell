@@ -61,7 +61,13 @@ export class ModalComponent implements OnInit {
     }
     this.gs.registerMutualFund(this.purchasingFundDetails).subscribe((response)=>{
       console.log(response);
-    })
+    },
+    (error)=>{
+      console.log(error);
+    });
+
+    this.quantity=0;
+    this.net_amt=0;
   }
 
   decrement(){
