@@ -57,8 +57,10 @@ export class ModalComponent implements OnInit {
     this.purchasingFundDetails={
       userName:this.userName,
       fundId:this.fund_id,
-      investmentAmount:this.net_amt
+      investmentAmount:this.net_amt,
+      // fundName: this.fund_name
     }
+    console.log(this.purchasingFundDetails)
     this.gs.registerMutualFund(this.purchasingFundDetails).subscribe((response)=>{
       console.log(response);
     },

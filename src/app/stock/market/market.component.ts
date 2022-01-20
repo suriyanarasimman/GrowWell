@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { GeneralService } from 'src/app/services/general.service';
 import { StockDetails } from 'src/assets/stockhistory/stockdetails';
 
@@ -44,7 +45,10 @@ export class MarketComponent implements OnInit {
   userName: string = localStorage.getItem('userName');;
 
 
-  constructor(private productService: GeneralService) {}
+  constructor(private productService: GeneralService, private cookieService: CookieService) {
+    this.userName=this.cookieService.get("userName");
+  }
+
 
   ngOnInit() {
     this.setStockDetails("ADN");

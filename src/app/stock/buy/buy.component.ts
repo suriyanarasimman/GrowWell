@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { GeneralService } from 'src/app/services/general.service';
 import { IStocks } from 'src/app/services/IStocks';
 
@@ -28,7 +29,7 @@ export class BuyComponent implements OnInit {
     { "ticker": "WIS", "name": "Wayne Industries", "price": 800 }
 ];
 
-  userName: string = localStorage.getItem('userName');;
+  userName;
   displayPriceForLimitOrder: boolean = false;
   searchInput: String = '';
   price: number;
@@ -39,10 +40,9 @@ export class BuyComponent implements OnInit {
   ordType:String = "Market Order";
   symbol:String;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private generalService: GeneralService
-  ) {}
+  constructor(private generalService: GeneralService, private cookieService: CookieService) {
+    this.userName=this.cookieService.get("userName");
+  }
 
   ngOnInit() {
    

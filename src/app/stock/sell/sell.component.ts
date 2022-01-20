@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { GeneralService } from 'src/app/services/general.service';
 import { IStocks } from 'src/app/services/IStocks';
 
@@ -25,10 +26,9 @@ export class SellComponent implements OnInit {
   symbol:String;
   first: number =0;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private generalService: GeneralService
-  ) {}
+  constructor(private generalService: GeneralService, private cookieService: CookieService) {
+    this.userName=this.cookieService.get("userName");
+  }
 
   ngOnInit() {
    

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { GeneralService } from 'src/app/services/general.service';
 
 @Component({
@@ -11,9 +12,12 @@ export class HistoryComponent implements OnInit {
   displayBuy: boolean = false;
   displaySell: boolean = false;
   // username: string = localStorage.getItem('username');
-  username: string = localStorage.getItem('userName');;
+  username;
 
-  constructor(private productService: GeneralService) {}
+  constructor(private productService: GeneralService, private cookieService: CookieService) {
+    this.username=this.cookieService.get("userName");
+  }
+
 
   ngOnInit() {
     this.fetchPortfolio();
