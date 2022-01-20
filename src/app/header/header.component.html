@@ -1,7 +1,7 @@
 <nav class="navbar nav-pills navbar-light navbar-expand-lg sticky-top"
     style="background-color: #e3f2fd;">
     <div class="container">
-        <a class="navbar-brand" routerLink="/home" routerLinkActive="router-link-active">
+        <a class="navbar-brand" routerLink="/dashboard" routerLinkActive="router-link-active">
             <!-- <img class="logo" src="/assets/images/logo.png"> --> GrowWell
         </a>
         <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
@@ -12,6 +12,7 @@
         <div class="collapse navbar-collapse" id="navcol-1">
 
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" [routerLink]="['/mutualfunds']">Mutual Funds</a></li>
                 
                 <li class="nav-item dropdown">

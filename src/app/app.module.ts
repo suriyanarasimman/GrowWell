@@ -35,6 +35,7 @@ import {CookieService} from 'ngx-cookie-service';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ForgotPasswordComponent,
     ChangePasswordComponent,
     NotfoundComponent,
-    DashboardComponent,
+    DashboardComponent
     
 
 

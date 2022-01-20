@@ -11,10 +11,13 @@ import { IncomeComponent } from './product-shop/components/income/income.compone
 import { MutualFundsComponent } from './mutual-funds/mutual-funds.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
+  {path:"dashboard",component:DashboardComponent},
   {path:"login", component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path: "stockhistory",component:StockhistoryComponent},
@@ -23,7 +26,8 @@ const routes: Routes = [
   {path:"income",component:IncomeComponent},
   {path: "mutualfunds",component:MutualFundsComponent},
   {path:"home",component:HomeComponent},
-  {path:'**',component:NotfoundComponent}
+  {path:'**',component:NotfoundComponent},
+  
 
 
 

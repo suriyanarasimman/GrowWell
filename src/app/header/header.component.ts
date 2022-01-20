@@ -13,7 +13,9 @@ export class HeaderComponent implements OnInit {
     private router:Router) { }
 
   Logout(){
-    this.cookieService.deleteAll();
+    if(this.cookieService.check("userName")) this.cookieService.deleteAll();
+    else sessionStorage.clear();
+  
     this.router.navigate(['']);
   }
   ngOnInit(): void {

@@ -32,13 +32,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
-    window.onbeforeunload = () => {
-      if(this.cookieService.get('isRemember')=="False"){
-        console.log('inside close');
-        this.cookieService.deleteAll();
-      }
-    }
 
     this.form = new FormGroup({
       username: new FormControl("",Validators.required),
@@ -47,13 +40,7 @@ export class LoginComponent implements OnInit {
     });
 
 
-    // localStorage.clear();
-    // this.cookieService.deleteAll();
   
-    console.log(this.cookieService.check('userName'));
-    console.log(this.cookieService.check('userType'));
-    console.log(this.cookieService.check('authenticated'));
-
 
   }
  
@@ -64,29 +51,35 @@ export class LoginComponent implements OnInit {
       password: this.form.get('password').value,
       rememberMe: this.isRemember
     };
-    console.log(authenticateRequest);
+    
     this.authenticate.authenticateUser(authenticateRequest).subscribe((response) => {
-      console.log(response)
+      
       if (response.authenticated) {
         if(this.isRemember){
-          //cookies to be implemented
-          console.log("inside remeber ");
+          
           const dateNow = new Date();
           dateNow.setDate(dateNow.getDate() + 15);
           this.cookieService.set("userName", response.userName, dateNow);
           this.cookieService.set("userType", response.userType, dateNow);
           this.cookieService.set("authenticated", response.authenticated, dateNow);
-          this.cookieService.set("isRemember","True");
+          this.cookieService.set('registeredDate', response.userFrom,dateNow);
+          this.cookieService.set('lastLogin',response.lastLoginDate,dateNow);
+          this.cookieService.set("isRemember","True",dateNow);
+
         }
         else if(!this.isRemember){
-          console.log("inside not remeber ");
-          this.cookieService.set("userName", response.userName);
-          this.cookieService.set("userType", response.userType);
-          this.cookieService.set("authenticated", response.authenticated);
-          this.cookieService.set("isRemember","False");
+          
+          sessionStorage.setItem("userName", response.userName);
+          sessionStorage.setItem("userType", response.userType);
+          sessionStorage.setItem("authenticated", response.authenticated);
+          sessionStorage.setItem("isRemember","False");
+          sessionStorage.setItem('lastLogin',response.lastLoginDate);
+          sessionStorage.setItem('registeredDate', response.userFrom);
+
+       
         }
         
-        this.router.navigate(['/shop']);
+        this.router.navigate(['/dashboard']);
       }
       else {
         this.invalidCredentials=true;
