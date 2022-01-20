@@ -18,10 +18,13 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './login/change-password/change-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 
 const routes: Routes = [
   {path:'',component:HomeComponent,pathMatch:'full'},
+  {path:"dashboard",component:DashboardComponent},
   {path:"login", component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path: "stockhistory",component:StockhistoryComponent},

@@ -27,9 +27,9 @@ export class HomeComponent implements OnInit {
   constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder,private cookieService:CookieService,private router:Router) {
 
     if(this.cookieService.check('userName')==true) {
-      // console.log('exists')
-      this.router.navigate(['/shop']);
+      this.router.navigate(['/dashboard']);
     }
+    else if(sessionStorage.hasOwnProperty("userName")==true) this.router.navigate(['/dashboard']);
 
    }
 
