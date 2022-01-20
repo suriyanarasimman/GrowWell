@@ -15,6 +15,10 @@ export class ForgotPasswordComponent implements OnInit {
   invalidCredentials: Boolean = false;
   validCredentials: Boolean = false;
 
+  mail={
+    mail: ""
+  }
+
   constructor(
     private gs: GeneralService,
     private router: Router,
@@ -27,7 +31,8 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   onSubmit(){
-    this.gs.forgotPassword(this.form.get("email").value).subscribe((response)=>
+    this.mail.mail = this.form.get("email").value
+    this.gs.forgotPassword(this.mail).subscribe((response)=>
     {
       this.validCredentials=true;
       setTimeout(()=>{

@@ -1,8 +1,7 @@
-<nav class="navbar nav-pills navbar-light navbar-expand-lg sticky-top"
-    style="background-color: #e3f2fd;">
+<nav class="navbar nav-pills navbar-light navbar-expand-lg sticky-top" style="background-color: #e3f2fd;">
     <div class="container">
         <a class="navbar-brand" routerLink="/home" routerLinkActive="router-link-active">
-            <!-- <img class="logo" src="/assets/images/logo.png"> --> GrowWell
+            <!-- <img class="logo" src="/assets/images/logo.png"> -->GrowWell
         </a>
         <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1">
             <span class="visually-hidden">Toggle
@@ -13,12 +12,11 @@
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" [routerLink]="['/mutualfunds']">Mutual Funds</a></li>
-                
+
                 <li class="nav-item dropdown">
 
 
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Shop
                     </a>
 
@@ -26,24 +24,23 @@
                         <a class="dropdown-item" [routerLink]="['/wealth']">Wealth Products <i class="fa fa-shopping-cart"></i></a>
                         <a class="dropdown-item" [routerLink]="['/income']">Income Products <i class="fa fa-shopping-cart"></i></a>
                     </div>
-                </li> 
+                </li>
                 <li class="nav-item"><a class="nav-link " [routerLink]="['/stockhistory']">Stock History</a></li>
                 <!-- <li class="nav-item"><a class="nav-link"  [routerLink]="['/shop']">Shop</a></li> -->
-                
+
                 <li class="nav-item dropdown">
 
 
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-user-circle fa-lg"></i>
                     </a>
 
-                    <div class="dropdown-menu"><a class="dropdown-item" href="#">Profile <i
-                                class="fa fa-user"></i></a><a class="dropdown-item" href="#">Change Password <i
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" [routerLink]="['/forgot-password']">Change Password <i
                                 class="fa fa-key"></i></a><a class="dropdown-item" (click)="Logout()">Logout <i
                                 class="fa fa-sign-out"></i></a>
                     </div>
-                </li>   
+                </li>
             </ul>
         </div>
     </div>
