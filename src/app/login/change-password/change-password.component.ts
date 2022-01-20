@@ -51,6 +51,7 @@ export class ChangePasswordComponent implements OnInit {
       },2000)
     },(error)=>{
       this.invalidCredentials = true;
+      console.log(error);
     });
   }
 

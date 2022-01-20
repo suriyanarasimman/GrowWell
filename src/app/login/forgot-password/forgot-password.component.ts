@@ -36,6 +36,7 @@ export class ForgotPasswordComponent implements OnInit {
     },
     (error)=>{
       this.invalidCredentials=true;
+      console.log(error);
     });
   }
 
