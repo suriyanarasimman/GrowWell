@@ -15,7 +15,13 @@ export class HistoryComponent implements OnInit {
   username;
 
   constructor(private productService: GeneralService, private cookieService: CookieService) {
-    this.username=this.cookieService.get("userName");
+    if(this.cookieService.check("userName")) {
+      this.username=this.cookieService.get("userName");
+    }
+    else {
+      this.username=sessionStorage.getItem("userName");
+    };
+   
   }
 
 

@@ -41,7 +41,13 @@ export class BuyComponent implements OnInit {
   symbol:String;
 
   constructor(private generalService: GeneralService, private cookieService: CookieService) {
-    this.userName=this.cookieService.get("userName");
+    if(this.cookieService.check("userName")) {
+      this.userName=this.cookieService.get("userName");
+    }
+    else {
+      this.userName=sessionStorage.getItem("userName");
+    };
+   
   }
 
   ngOnInit() {

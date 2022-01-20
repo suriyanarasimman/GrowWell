@@ -25,10 +25,13 @@ export class ModalComponent implements OnInit {
 
 
   constructor(private gs:GeneralService, private cookieService:CookieService) { 
-    // this.userName=localStorage.getItem("userName");
-    this.userName=this.cookieService.get("userName");
-
-    // this.userName="mr.bean";
+    if(this.cookieService.check("userName")) {
+      this.userName=this.cookieService.get("userName");
+    }
+    else {
+      this.userName=sessionStorage.getItem("userName");
+    };
+   
   }
 
   ngOnInit(): void {
