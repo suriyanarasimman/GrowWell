@@ -1,13 +1,13 @@
 <app-header></app-header>
 
-<h1 align="center" class="py-5"> Mutual Funds </h1>
+<h1 align="center" class="py-2"> Mutual Funds </h1>
 
 <div class="container">
     <div class="row py-1 mt-4">
         <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+            <app-portfolio (sendFundData)="getFundData($event)"></app-portfolio>
             <app-filters (sendFundData)="getFundData($event)"></app-filters>
         </div>
-
 
         <div class="col-md-7 col-lg-7 ml-auto">
 
@@ -78,6 +78,7 @@
 
 
         </div>
+
     </div>
 </div>
 

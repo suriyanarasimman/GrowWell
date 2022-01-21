@@ -1,51 +1,62 @@
 <div class="container">
     <div class="card text-black bg-light mb-3 px-4 py-2">
+        <h4><b>Portfolio</b></h4>
+        <br>
 
-        <div class="row">
-            <div class="col py-2">
-                <h5><b>Available funds:</b></h5>
-                <h5><b>INR 20000.52</b></h5>
-            </div>
+        <div *ngIf="funds.length==0">
+            It's too empty. Buy some mutual funds.
         </div>
 
-        <div class="row py-3">
-            <div class="col-auto">
-                <button type="button" class="btn btn-outline-success">Add funds</button>
-            </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-outline-danger">Withdraw funds</button>
+        <div class="container fixSize">
+            <div class="row" *ngFor="let fund of funds">
+                Fund Name: {{fund.name}}
+                <br>
+                Invested Amount: {{fund.investmentAmount}}
+                <br>
+                Invested Date: {{fund.registrationDate}}
+                <hr>
             </div>
         </div>
-
-        <hr>
-
-        <div class="row px-2 py-2">
-
-            <div class="col">
-                <div class="row">
-                    Invested Amount:
-                </div>
-                <div class="row">
-                    Current Amount:
-                </div>
-                <div class="row">
-                    Average Returns:
-                </div>
-                <!-- <div class="row">
-                    Next-SIP:
-                </div> -->
-            </div>
-
-        </div>
-
-        <div class="row py-3">
-            <div class="col-auto">
-                <button type="button" class="btn btn-outline-primary">See full portfolio</button>
-            </div>
-            <!-- <div class="col-auto">
-                <button type="button" class="btn btn-outline-warning">See my watchlist</button>
-            </div> -->
-        </div>
-
     </div>
 </div>
+
+
+<!-- 
+<div class="row py-3">
+    <div class="col-auto">
+        <button type="button" class="btn btn-outline-success">Add funds</button>
+    </div>
+    <div class="col-auto">
+        <button type="button" class="btn btn-outline-danger">Withdraw funds</button>
+    </div>
+</div>
+
+<hr>
+
+<div class="row px-2 py-2">
+
+    <div class="col">
+        <div class="row">
+            Invested Amount:
+        </div>
+        <div class="row">
+            Current Amount:
+        </div>
+        <div class="row">
+            Average Returns:
+        </div>
+        <div class="row">
+            Next-SIP:
+        </div>
+    </div>
+
+</div>
+
+<div class="row py-3">
+    <div class="col-auto">
+        <button type="button" class="btn btn-outline-primary">See full portfolio</button>
+    </div>
+    <div class="col-auto">
+        <button type="button" class="btn btn-outline-warning">See my watchlist</button>
+    </div>
+</div> -->
