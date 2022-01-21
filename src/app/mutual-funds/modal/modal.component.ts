@@ -17,9 +17,9 @@ export class ModalComponent implements OnInit {
   purchasingFundDetails:Object;
 
   @Input() fund_data: Object;
-  fund_name;
+  fund_name:String;
   fund_min_investment:number;
-  fund_cagr;
+  fund_cagr:number;
   fund_nav:number;
   fund_id:number;
 
