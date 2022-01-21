@@ -1,49 +1,61 @@
 <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 footer-column">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <span class="footer-title">Feature</span>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Product 1</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Product 2</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Plans & Prices</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Frequently asked questions</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-md-4 footer-column">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <span class="footer-title">Contact & Support</span>
-            </li>
-            <li class="nav-item">
-              <span class="nav-link"><i class="fa fa-phone"></i> +47 45 80 80 80</span>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fa fa-envelope"></i> Contact us</a>
-            </li>
-            
-          </ul>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 footer-column">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <span class="footer-title">Products</span>
+          </li>
 
 
-        <div class="col-md-4 footer-column">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-             <img src="/assets/images/logo2.png" height="100px">
-            </li>
-            <!-- <li class="nav-item">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/stock']">Stocks</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/mutualfunds']">Mutual Funds</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/stockhistory']">Stocks History</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/income']">Income Products</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/wealth']">Wealth Products</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 footer-column">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <span class="footer-title">Contact & Support</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mailto:growwell321@gmail.com"><i class="fa fa-at"></i>
+              growwell321@gmail.com </a>
+
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#contact"><i class="fa fa-envelope"></i> Contact us</a>
+          </li>
+
+        </ul>
+      </div>
+
+
+      <div class="col-md-4 footer-column">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <img src="/assets/images/logo2.png" height="170px">
+          </li>
+          <!-- <li class="nav-item">
               <a class="nav-link" href="#">About us</a>
             </li>
             <li class="nav-item">
@@ -52,39 +64,40 @@
             <li class="nav-item">
               <a class="nav-link" href="#">News and articles</a>
             </li> -->
-          </ul>
-        </div>
-
-       
+        </ul>
       </div>
-  
-      <!-- <div class="text-center"><i class="fas fa-ellipsis-h"></i></div> -->
-      
-      <div class="row text-center">
-        <div class="col-md-4 box">
-          <span class="copyright quick-links">Copyright &copy; GrowWell <script>document.write(new Date().getFullYear())</script>
-          </span>
-        </div>
-        <div class="col-md-4 box">
-          <ul class="list-inline social-buttons">
-            <li class="list-inline-item">
-              <a  href="https://github.com/suriyanarasimman/GrowWell" target="_blank">
+
+
+    </div>
+
+    <!-- <div class="text-center"><i class="fas fa-ellipsis-h"></i></div> -->
+
+    <div class="row text-center">
+      <div class="col-md-4 box">
+        <span class="copyright quick-links">Copyright &copy; GrowWell
+          <script>document.write(new Date().getFullYear())</script>
+        </span>
+      </div>
+      <div class="col-md-4 box">
+        <ul class="list-inline social-buttons">
+          <li class="list-inline-item">
+            <a href="https://github.com/suriyanarasimman/GrowWell" target="_blank">
               <i class="fa fa-github"></i>
             </a>
-            </li>
-           
-          </ul>
-        </div>
-        <div class="col-md-4 box">
-          <ul class="list-inline quick-links">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
+          </li>
+
+        </ul>
+      </div>
+      <div class="col-md-4 box">
+        <ul class="list-inline quick-links">
+          <li class="list-inline-item">
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms of Use</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
