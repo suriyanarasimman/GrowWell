@@ -30,7 +30,7 @@ export class PortfolioComponent implements OnInit {
     })
   }
 
-  ngOnChanges():void{
+  refresh(){
     this.gs.mutualFundsOwnedByUser(this.userName).subscribe((response)=>{
       this.funds=response;
     },
