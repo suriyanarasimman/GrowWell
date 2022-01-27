@@ -11,7 +11,7 @@ export class NotfoundComponent implements OnInit {
   constructor(private router:Router) { }
 
   changeTab(){
-    this.router.navigate(['/']);
+    this.router.navigate(['']);
   }
   ngOnInit(): void {
   }

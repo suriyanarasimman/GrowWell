@@ -24,7 +24,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
- 
+  {
+    path:'',
+    component:HomeComponent,
+    
+  },
   {
     path:"stock", 
     component:StockComponent,
@@ -54,12 +58,12 @@ const routes: Routes = [
   {
     path:"forgot-password",
     component:ForgotPasswordComponent,
-    canActivate: [AuthGuard]
+    
   },
   {
     path:"change-password",
     component:ChangePasswordComponent,
-    canActivate: [AuthGuard]
+    
   },
 
   
@@ -109,11 +113,7 @@ const routes: Routes = [
     path:'**',
     component:NotfoundComponent
   },
-  {
-    path:'',
-    component:HomeComponent,
-    pathMatch:'full'
-  },
+  
   
 
 

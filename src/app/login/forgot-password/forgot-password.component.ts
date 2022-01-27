@@ -12,6 +12,7 @@ import { GeneralService } from 'src/app/services/general.service';
 export class ForgotPasswordComponent implements OnInit {
 
   form: FormGroup;
+  target:any
   invalidCredentials: Boolean = false;
   validCredentials: Boolean = false;
 
@@ -28,6 +29,8 @@ export class ForgotPasswordComponent implements OnInit {
     this.form = new FormGroup({
       email: new FormControl("", [Validators.email, Validators.required]),
     });
+    this.target=<HTMLInputElement>document.getElementById('inputEmail');
+    this.target.focus();
   }
 
   onSubmit(){

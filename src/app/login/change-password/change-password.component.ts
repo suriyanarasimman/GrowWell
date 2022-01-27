@@ -12,6 +12,7 @@ import { GeneralService } from 'src/app/services/general.service';
 })
 export class ChangePasswordComponent implements OnInit {
   form: FormGroup;
+  target:any;
   invalidCredentials: Boolean = false;
   validCredentials: Boolean = false;
 
@@ -35,6 +36,9 @@ export class ChangePasswordComponent implements OnInit {
       token: new FormControl("",Validators.required),
       password: new FormControl("", Validators.required),
     });
+
+    this.target=<HTMLInputElement>document.getElementById('inputEmail');
+    this.target.focus();
   }
 
   onSubmit(){
