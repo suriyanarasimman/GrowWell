@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './services/routerGuard/auth.guard';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
@@ -16,17 +17,57 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
-  {path:'',component:HomeComponent,pathMatch:'full'},
-  {path:"dashboard",component:DashboardComponent},
-  {path:"login", component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path: "stockhistory",component:StockhistoryComponent},
-  {path:"shop",component:ProductShopComponent},
-  {path:"wealth",component:WealthComponent},
-  {path:"income",component:IncomeComponent},
-  {path: "mutualfunds",component:MutualFundsComponent},
-  {path:"home",component:HomeComponent},
-  {path:'**',component:NotfoundComponent},
+  {
+    path:'',
+    component:HomeComponent,
+    pathMatch:'full'
+  },
+  {
+    path:"dashboard",
+    component:DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"login", 
+    component:LoginComponent
+  },
+  {
+    path:'register',
+    component:RegisterComponent
+  },
+  {
+    path: "stockhistory",
+    component:StockhistoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"shop",
+    component:ProductShopComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"wealth",
+    component:WealthComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"income",
+    component:IncomeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "mutualfunds",
+    component:MutualFundsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path:"home",
+    component:HomeComponent
+  },
+  {
+    path:'**',
+    component:NotfoundComponent
+  },
   
 
 

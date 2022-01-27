@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild, AfterViewInit  } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { GeneralService } from 'src/app/services/general.service';
 import {CookieService} from 'ngx-cookie-service';
@@ -14,13 +14,20 @@ declare var $:any;
 })
 export class LoginComponent implements OnInit {
 
+  target:any;
   form: FormGroup;
   invalidCredentials: Boolean = false;
   isRemember:Boolean=false;
   constructor(
     private authenticate: GeneralService,
     private router: Router,
-    private cookieService:CookieService) { }
+    private cookieService:CookieService) {
+
+      if(this.cookieService.check('userName')==true) {
+        this.router.navigate(['/dashboard']);
+      }
+      else if(sessionStorage.hasOwnProperty("userName")==true) this.router.navigate(['/dashboard']);
+     }
 
     togglePassword($event){
       const togglePassword = document.querySelector('#showpassword');
@@ -40,10 +47,12 @@ export class LoginComponent implements OnInit {
     });
 
 
+    this.target=<HTMLElement>document.getElementById('inputUsername');
+    this.target.focus();
   
 
   }
- 
+  
 
   onSubmit() {
     let authenticateRequest = {
