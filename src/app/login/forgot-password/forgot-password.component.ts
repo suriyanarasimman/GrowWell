@@ -23,7 +23,9 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(
     private gs: GeneralService,
     private router: Router,
-    private cookieService: CookieService) { }
+    private cookieService: CookieService) {
+      
+     }
 
   ngOnInit(): void {
     this.form = new FormGroup({

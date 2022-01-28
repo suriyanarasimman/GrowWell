@@ -41,7 +41,7 @@ export class SellComponent implements OnInit {
   }
 
   datecalled(){
-    console.log(this.searchInput)
+    // console.log(this.searchInput)
     this.fullName = this.searchInput
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].productName == this.searchInput){
@@ -50,8 +50,8 @@ export class SellComponent implements OnInit {
         this.pricesent = this.price;
         this.symbol = this.searchResult[i].productID;
         this.QuantityLimit = this.searchResult[i].quantity;
-        console.log(this.price)
-        console.log(this.Quantity)
+        // console.log(this.price)
+        // console.log(this.Quantity)
       }
     }
   }
@@ -96,9 +96,9 @@ export class SellComponent implements OnInit {
     this.generalService.sellProduct(sellOrderRequest).subscribe(
       (res) => {
         if (res.status === 'UPDATED') {
-          console.log("UPDATED")
+          // console.log("UPDATED")
         } else {
-          console.log("Not Updated")
+          // console.log("Not Updated")
         }
       },
     );

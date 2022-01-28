@@ -106,12 +106,12 @@ export class DashboardComponent implements OnInit {
 
     this.RouteService.mutualFundsOwnedByUser(this.userName).subscribe((res) => {
       this.mutualFundList = res;
-      console.log(this.mutualFundList);
+      // console.log(this.mutualFundList);
       this.mutualFundsInvestedIn = res.length;
       this.mutualFundList.forEach(
         (fund) =>
           (this.totalMutualFundInvestedAmount =
-            this.totalMutualFundInvestedAmount + fund.maturityAmount)
+            this.totalMutualFundInvestedAmount + fund.investmentAmount)
       );
     });
 
