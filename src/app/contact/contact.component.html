@@ -1,0 +1,59 @@
+<app-header></app-header>
+<section class="page-section" id="contact">
+    <div class="container" style="padding-bottom: 50px; padding-top: 50px;">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Contact Us</h2>
+            <h5 class="section-heading ">Drop Us a Message for any Query.</h5>
+        </div>
+
+        <form id="contactForm" [formGroup]="contactForm" (ngSubmit)="sendContactUs()">
+            <div class="row align-items-stretch mb-5">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- Name input-->
+                        <input class="form-control" (click)="reset()" required="required" id="name" type="text" placeholder="Your Name *" formControlName="username" />
+                        <!-- <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div> -->
+                    </div>
+                    <div class="form-group">
+                        <!-- Email address input-->
+                        <input class="form-control" (click)="reset()" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required="required" id="email" type="email" placeholder="Your Email *" formControlName="email" />
+
+                    </div>
+                    <div class="form-group mb-md-0">
+                        <!-- Phone number input-->
+                        <input class="form-control" (click)="reset()" required="required" id="phone" type="tel" placeholder="Your Phone *" maxlength="10" formControlName="phone" />
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        <!-- Message input-->
+                        <textarea class="form-control" (click)="reset()" required="required" id="message" placeholder="Your Message *" formControlName="message"></textarea>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="submitSuccessMessage" *ngIf="isAdded">
+                <div class="text-center text-white mb-3">
+
+                    <div class="fw-bolder">
+                        <img src="/assets/images/home/tick.gif">
+                    </div>
+
+                    <div class="fw-bolder h3 text-center text-success">Form Submission Successful!</div>
+
+
+                </div>
+            </div>
+
+            <div id="submitErrorMessage" *ngIf="isError">
+                <div class="text-center text-danger mb-3"><img src="/assets/images/home/error.gif" height="150px"></div>
+                <div class="text-center h3 text-danger mb-3">Error Sending Message!</div>
+            </div>
+            <!-- Submit Button-->
+            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase " id="submitButton" type="submit" [disabled]="!contactForm.valid">Send Message</button></div>
+        </form>
+    </div>
+</section>
+<app-footer></app-footer>

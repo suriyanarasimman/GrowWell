@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './login/change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -37,9 +38,11 @@ const routes: Routes = [
   {path:"wealth",component:WealthComponent},
   {path:"income",component:IncomeComponent},
   {path: "mutualfunds",component:MutualFundsComponent},
+  {path:"contact",component:ContactComponent},
   {path:"home",component:HomeComponent},
   {path:"forgot-password",component:ForgotPasswordComponent},
   {path:"change-password",component:ChangePasswordComponent},
+  
   {path:'**',component:NotfoundComponent}
 
 

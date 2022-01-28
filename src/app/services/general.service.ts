@@ -29,6 +29,10 @@ export class GeneralService {
 
   constructor(private http: HttpClient) { }
 
+  getUserDetails(name:String):Observable<any>{
+    return this.http.get<any>(this.baseUrl + "" + name);
+  }
+
   forgotPassword(mail:any):Observable<any>{
     return this.http.post<any>(this.baseUrl + "sh/m/mail", mail);
   }

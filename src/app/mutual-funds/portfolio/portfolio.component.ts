@@ -10,7 +10,7 @@ import { GeneralService } from 'src/app/services/general.service';
 export class PortfolioComponent implements OnInit {
 
   userName:String;
-  funds:Array<Object>;
+  funds:Array<Object> = [];
 
   constructor(private gs:GeneralService, private cookieService:CookieService) {
     if(this.cookieService.check("userName")) {
