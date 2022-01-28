@@ -32,7 +32,7 @@ export class HistoryComponent implements OnInit {
   fetchPortfolio() {
     this.productService.fetchStockHistory(this.username).subscribe(
       (res) => {
-        console.log(res)
+        // console.log(res)
         this.stockList = res.filter(
           (product) => product.productType === 'STOCK'
         );

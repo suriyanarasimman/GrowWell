@@ -21,12 +21,6 @@ export class ContactComponent implements OnInit {
   email=new FormControl('',[Validators.required]);
   message=new FormControl('',[Validators.required]);
   constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder,private cookieService:CookieService,private router:Router) {
-
-    if(this.cookieService.check('userName')==true) {
-      this.router.navigate(['/dashboard']);
-    }
-    else if(sessionStorage.hasOwnProperty("userName")==true) this.router.navigate(['/dashboard']);
-
     if(this.cookieService.check("userName")) {
       this.name=this.cookieService.get("userName");
     }

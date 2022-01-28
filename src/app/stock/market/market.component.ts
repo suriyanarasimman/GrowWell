@@ -61,7 +61,7 @@ export class MarketComponent implements OnInit {
     this.fetchSeries()
   }
   datecalled(){
-    console.log(this.stockdetails.name)
+    // console.log(this.stockdetails.name)
     
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].productID == this.stockdetails.name){
@@ -74,7 +74,7 @@ export class MarketComponent implements OnInit {
     this.datecalled()
     if(!this.displayBuy){
       if(!this.sellProductAvailable){
-        console.log("Not available")
+        // console.log("Not available")
       }
     }
   }
@@ -122,7 +122,7 @@ export class MarketComponent implements OnInit {
       this.setStockDetails(name)
   }
   displayon(){
-    console.log("sample: " + this.qty)
+    // console.log("sample: " + this.qty)
   }
 
   addQuantity(){
@@ -191,10 +191,10 @@ export class MarketComponent implements OnInit {
   this.productService.sellProduct(sellOrderRequest).subscribe(
     (res) => {
       if (res.status === 'UPDATED') {
-        console.log("UPDATED")
+        // console.log("UPDATED")
         this.status = "successfully sold the product "
       } else {
-        console.log("Not Updated")
+        // console.log("Not Updated")
         this.status = "Product not sold due to less holdings "
       }
     },

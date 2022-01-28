@@ -29,9 +29,9 @@ export class StockhistoryComponent implements OnInit {
   ngOnInit(): void {
   }
   datecalled(){
-    console.log(this.dateInput)
+    // console.log(this.dateInput)
     this.subscription.unsubscribe();
-    console.log(this.searchInput)
+    // console.log(this.searchInput)
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].fullnames == this.searchInput){
         this.selected = this.searchResult[i].symbo;
@@ -41,10 +41,10 @@ export class StockhistoryComponent implements OnInit {
       (response) =>{
         this.stockdetails = response;
         this.Submitted1 ="1";
-        console.log("Changes made")
-        console.log(this.stockdetails)
-        console.log(this.dateInput)
-        console.log(this.selected)
+        // console.log("Changes made")
+        // console.log(this.stockdetails)
+        // console.log(this.dateInput)
+        // console.log(this.selected)
       })
       
   }
@@ -53,9 +53,9 @@ export class StockhistoryComponent implements OnInit {
     this.selected = symbol;
     this.selectedFullname = fullname;
     this.clicked = "1"
-    console.log("Inside")
-    console.log(symbol)
-    console.log(this.selectedFullname)
+    // console.log("Inside")
+    // console.log(symbol)
+    // console.log(this.selectedFullname)
 
   }
 

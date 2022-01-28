@@ -55,7 +55,7 @@ export class BuyComponent implements OnInit {
   }
 
   datecalled(){
-    console.log(this.searchInput)
+    // console.log(this.searchInput)
     this.fullName = this.searchInput
     for (var i = 0; i < this.searchResult.length; i++){
       if (this.searchResult[i].name == this.searchInput){
@@ -63,8 +63,8 @@ export class BuyComponent implements OnInit {
         this.Limit = this.searchResult[i].price;
         this.pricesent = this.price;
         this.symbol = this.searchResult[i].ticker;
-        console.log(this.price)
-        console.log(this.Quantity)
+        // console.log(this.price)
+        // console.log(this.Quantity)
       }
     }
   }
@@ -84,8 +84,8 @@ export class BuyComponent implements OnInit {
   }
   onBuyFormSubmit() {
     if(this.displayPriceForLimitOrder){this.pricesent = this.Limit;}
-    console.log("Inside onBuyFormSubmut price to be sent: " + this.pricesent)
-    console.log("Username: " + this.userName)
+    // console.log("Inside onBuyFormSubmut price to be sent: " + this.pricesent)
+    // console.log("Username: " + this.userName)
     let buyOrderRequest = {
       userName: this.userName,
       productName: this.fullName,

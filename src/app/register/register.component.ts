@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { loginFormValidator } from './password.validator';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { FormBuilder,
   FormControl,
   FormGroup,
@@ -39,7 +41,12 @@ export class RegisterComponent implements OnInit {
   
 
 
-  constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder) { }
+  constructor(private Routeservice:GeneralService,private http:HttpClient,private formBuilder: FormBuilder,private router:Router,private cookieService:CookieService) {
+    if(this.cookieService.check('userName')==true) {
+      this.router.navigate(['/dashboard']);
+    }
+    else if(sessionStorage.hasOwnProperty("userName")==true) this.router.navigate(['/dashboard']);
+   }
 
  
 
@@ -125,7 +132,7 @@ export class RegisterComponent implements OnInit {
         
         this.countries.push(x.country_name);
       })
-      console.log(this.countries);
+      // console.log(this.countries);
     })
   }
 
@@ -141,7 +148,7 @@ export class RegisterComponent implements OnInit {
 
     this.Routeservice.getToken(httpOptions).subscribe((res)=>{
 
-      console.log(res);
+      // console.log(res);
       this.CountriesList(res.auth_token);
 
     });
@@ -195,11 +202,11 @@ export class RegisterComponent implements OnInit {
       userType: this.registrationForm.get('type').value,
     };
 
-    console.log(customerInfo);
+    // console.log(customerInfo);
 
     this.Routeservice.registerUser(customerInfo).subscribe(
       (response) => {
-        console.log(response);
+        // console.log(response);
         if (response.status === 'ADDED') {
           this.userAdded = true;
         } else {
