@@ -39,6 +39,7 @@ import { ChangePasswordComponent } from './login/change-password/change-password
 import {CookieService} from 'ngx-cookie-service';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ForgotPasswordComponent,
     ChangePasswordComponent,
     NotfoundComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContactComponent
     
 
 

@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { ForgotPasswordComponent } from './login/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from './login/change-password/change-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -108,6 +109,11 @@ const routes: Routes = [
   {
     path:"home",
     component:HomeComponent
+  },
+  {
+    path: "contact",
+    component:ContactComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'**',
