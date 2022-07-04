@@ -9,5 +9,5 @@
 export const environment = {
   production: true,
   environmentName: "Prod",
-  baseUrl: "http://gwbt.azurewebsites.net/api/v1/",
+  baseUrl: "https://gwbt.azurewebsites.net/api/v1/",
 };
