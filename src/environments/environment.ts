@@ -2,10 +2,18 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// previously working code 
+// export const environment = {
+//   production: false,
+//   environmentName: "Dev",
+//   baseUrl: "http://backend.grow-well.live/api/v1/",
+// };
+
+//after changing to static web app
 export const environment = {
   production: false,
   environmentName: "Dev",
-  baseUrl: "http://backend.grow-well.live/api/v1/",
+  baseUrl: "https://gwbt.azurewebsites.net/api/v1/",
 };
 
 /*
